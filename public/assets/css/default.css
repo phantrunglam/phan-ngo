@@ -1,0 +1,710 @@
+/* ==================== */
+/* 1. FONT FACE DEFINITIONS */
+/* ==================== */
+/* last change: 2025-03-30 */
+@font-face {
+  font-family: "BeVietnamPro";
+  src: url("/assets/fonts/BeVietnamPro-Light.eot");
+  src: url("/assets/fonts/BeVietnamPro-Light.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/BeVietnamPro-Light.woff") format("woff"),
+    url("/assets/fonts/BeVietnamPro-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BeVietnamPro";
+  src: url("/assets/fonts/BeVietnamPro-Bold.eot");
+  src: url("/assets/fonts/BeVietnamPro-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/BeVietnamPro-Bold.woff") format("woff"),
+    url("/assets/fonts/BeVietnamPro-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Gợi ý dùng font */
+body {
+  font-family: "BeVietnamPro", sans-serif;
+}
+
+/* ==================== */
+/* 2. BASE STYLES */
+/* ==================== */
+body {
+  margin: 0;
+  padding: 0;
+  color: #000000;
+  background-color: #abeaf7;
+  background-image: url("/assets/images/WaterBackground.jpg");
+  background-repeat: repeat-x;
+  background-position: center top;
+  background-attachment: fixed;
+  font-family: "Tahoma", sans-serif;
+  font-size: 13px;
+  font-weight: lighter;
+  line-height: 1.5;
+}
+
+/* Mobile-first responsive base */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    background-attachment: scroll;
+  }
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #975;
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px;
+}
+
+/* ==================== */
+/* 3. LAYOUT STRUCTURE */
+/* ==================== */
+#view_id {
+  background-color: rgba(235, 250, 255, 0.85);
+  width: 90%;
+  margin: 24px auto;
+  padding: 24px;
+  border-radius: 24px;
+}
+
+#content_id {
+  clear: both;
+  margin: 32px auto 64px;
+  max-width: 850px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #view_id {
+    width: 95%;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px auto;
+  }
+
+  #content_id {
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+}
+
+/* ==================== */
+/* 4. HEADER & NAVIGATION */
+/* ==================== */
+/* Header styles... (giữ nguyên các style header hiện có) */
+/*Header*/
+#header_id {
+  position: relative;
+  padding: 10px;
+}
+
+#header_inner_id {
+  display: table;
+  width: 100%;
+}
+
+#header_emblem_left_id {
+  display: table-cell;
+  width: 128px;
+  height: 128px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#header_emblem_left_id img {
+  max-height: 128px;
+  max-width: 128px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+#header_text_id {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  height: 128px;
+  padding: 0px 10px;
+}
+
+#header_text_id h1 {
+  padding: 0px;
+  margin: 0px;
+  font-size: 80px;
+  white-space: normal;
+}
+
+/* Menu styles - Responsive */
+#menu_id {
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  font-weight: bold;
+}
+
+#menu_row_id {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.menu_item {
+  font-size: 110%;
+  padding: 5px 10px;
+  flex: 1 0 auto;
+  min-width: 120px;
+}
+
+/* Back button */
+#prevBtn {
+  left: 10px;
+}
+#nextBtn {
+  right: 10px;
+}
+
+@media (max-width: 600px) {
+  #menu_row_id {
+    flex-direction: column;
+  }
+
+  .menu_item {
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+  }
+}
+
+/* ==================== */
+/* 5. TYPOGRAPHY & HEADINGS */
+/* ==================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1.25rem 0;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+  text-align: center;
+}
+
+/* ==================== */
+/* 6. TABLES */
+/* ==================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+th,
+td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Responsive tables */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* ==================== */
+/* 7. MEDIA & GALLERY */
+/* ==================== */
+/* Giữ nguyên các style media hiện có, thêm responsive */
+@media (max-width: 600px) {
+  .media_div {
+    width: 100%;
+    height: auto;
+    margin: 0 0 15px 0;
+    float: none;
+  }
+}
+
+/*Media subsection*/
+.media_subsection {
+  margin: 0px;
+  padding: 5px;
+  overflow: auto;
+}
+
+.media_subsection h3 {
+  margin: 0px 0px 5px 0px;
+  padding: 1px;
+  overflow: auto;
+
+  font-size: 120%;
+}
+
+.media_subsection > div {
+  overflow: auto;
+}
+
+.media_div {
+  position: relative;
+  float: left;
+  width: 148px;
+  height: 150px;
+  padding: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  line-height: 148px;
+}
+
+.media_div p {
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  line-height: 16px;
+  margin: 0px;
+
+  padding: 1px;
+
+  overflow: hidden;
+  width: 100%;
+  height: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.media_div:hover p {
+  display: block;
+  background-color: #fff;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.media_div img {
+  max-width: 128px;
+  max-height: 128px;
+  height: auto;
+  margin: 10px;
+  vertical-align: middle;
+}
+
+.media_div a {
+  display: block;
+  text-align: center;
+}
+
+/*
+.media_div a:hover {
+}
+*/
+
+/* Media Gallery Styles */
+.gallery-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  position: relative;
+}
+
+.gallery-slides {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  max-width: 90%;
+}
+
+.gallery-image {
+  max-width: 100px;
+  height: auto;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.1);
+}
+
+.gallery-nav {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+/* ==================== */
+/* 8. UTILITY CLASSES */
+/* ==================== */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ==================== */
+/* 9. MOBILE SPECIFIC STYLES */
+/* ==================== */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  #header_text_id h1 {
+    font-size: 2rem;
+  }
+
+  /* Form elements */
+  input,
+  select,
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Hide less important elements */
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* ==================== */
+/* 10. PRINT STYLES */
+/* ==================== */
+@media print {
+  body {
+    background: none;
+    font-size: 12pt;
+  }
+
+  #view_id {
+    background: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .no-print {
+    display: none;
+  }
+}
+
+/* ========== PERSON HEADER IMPROVEMENT ========== */
+.main_heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 25px;
+  border: 1px solid #eaecef;
+}
+
+.main_heading a {
+  display: inline-block;
+  line-height: 0; /* Fix spacing under image */
+}
+
+.main_heading img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.main_heading img:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.main_heading h1 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+  flex: 1;
+  min-width: 200px;
+}
+
+#person_id_id {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #e9ecef;
+  color: #495057;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: monospace;
+  margin-top: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main_heading {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .main_heading h1 {
+    font-size: 1.5rem;
+  }
+
+  .main_heading img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ========== SEARCH SUBMENU - MULTI PLATFORM ========== */
+.search-parent-item {
+  position: relative;
+}
+
+/* Desktop/Tablet (hiển thị ngang) */
+@media (min-width: 769px) {
+  .search-submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 4px;
+    padding: 5px 0;
+  }
+
+  .search-parent-item:hover .search-submenu {
+    display: block;
+  }
+
+  .search-submenu li {
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .search-submenu a {
+    padding: 8px 15px;
+    white-space: nowrap;
+  }
+}
+
+/* Mobile (hiển thị dọc) */
+@media (max-width: 768px) {
+  .search-submenu {
+    display: none;
+    position: static;
+    background: #f8f9fa;
+    width: 100%;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .search-submenu.show {
+    display: block;
+  }
+
+  .search-submenu li {
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .search-submenu a {
+    padding: 12px 20px;
+  }
+}
+
+/* Common styles for all platforms */
+.search-submenu {
+  list-style: none;
+  margin: 0;
+}
+
+.search-submenu a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.search-submenu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Search container */
+.global-search-container {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Search result items */
+.search-result-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: #f5f5f5;
+}
+
+.search-result-item a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+/*-- PTL 2025-03-31 arrange paging-items horz */
+/*List pages*/
+.person_list_page .main_heading {
+  display: none;
+}
+
+.person_list_page #paging_menu_row_id,
+.family_list_page #paging_menu_row_id {
+  text-align: center;
+  margin: 5px;
+}
+
+.person_list_page .paging_menu_item,
+.family_list_page .paging_menu_item {
+  list-style: none;
+  display: inline-block;
+}
+
+.person_list_page .paging_menu_item a,
+.family_list_page .paging_menu_item a {
+}
+
+.family_list_page .main_heading {
+  display: none;
+}
+
+.source_list_page .main_heading {
+  display: none;
+}
+
+/* Added on 2025-03-24 */
+.paging_menu_item {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  margin: 5px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.paging_menu_item a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.paging_menu_item:hover {
+  background-color: #d1e7fd;
+}
+
+/* Sub Menu */
+.has_submenu {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: white;
+  list-style: none;
+  padding: 5px 0;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+}
+
+.submenu li {
+  padding: 8px 15px;
+}
+
+.submenu li a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.submenu li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Hiện submenu khi hover vào mục cha */
+.has_submenu:hover .submenu {
+  display: block;
+}

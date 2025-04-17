@@ -1,0 +1,274 @@
+/* mobile.css - Phiên bản tối ưu cho mobile */
+
+/* ========== MOBILE MENU FIXES ========== */
+#menu_id {
+    position: relative;
+    background: #2c3e50;
+    border-radius: 0;
+    margin: 0 -10px;
+    width: calc(100% + 20px);
+}
+
+#hamburger-btn {
+    display: block !important;
+    width: 100%;
+    padding: 16px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+#hamburger-btn::after {
+    content: "☰";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+#hamburger-btn.active::after {
+    content: "×";
+}
+
+#menu_row_id {
+    display: none;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+#menu_row_id.show {
+    display: flex !important;
+}
+
+.menu_item {
+    width: 100% !important;
+    text-align: left !important;
+    padding: 0 !important;
+    border-bottom: 1px solid #eee;
+}
+
+.menu_item a, 
+.menu_item button {
+    display: block !important;
+    padding: 14px 20px !important;
+    color: #333 !important;
+    text-decoration: none !important;
+    font-size: 16px;
+}
+
+.menu_item:hover {
+    background: #f5f5f5;
+}
+
+/* ========== LAYOUT IMPROVEMENTS ========== */
+body {
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#view_id {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+/* ========== PERSON HEADER ADJUSTMENTS ========== */
+.main_heading {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.main_heading img {
+    width: 100px;
+    height: 100px;
+}
+
+.main_heading h1 {
+    font-size: 1.5rem;
+    margin: 5px 0;
+}
+
+/* ========== SAFE AREA FOR NOTCHED DEVICES ========== */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(10px, env(safe-area-inset-left));
+        padding-right: max(10px, env(safe-area-inset-right));
+    }
+    
+    #menu_id {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+}
+
+/* ========== SPECIAL ADJUSTMENT FOR IPHONE 14 PRO MAX ========== */
+@media only screen 
+    and (device-width: 428px) 
+    and (device-height: 926px) 
+    and (-webkit-device-pixel-ratio: 3) {
+    
+    #menu_row_id {
+        max-height: 60vh;
+    }
+    
+    .main_heading {
+        padding: 20px;
+    }
+}
+
+/* ========== MOBILE NAVIGATION BAR ========== */
+.mobile-nav-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2c3e50;
+    z-index: 1000;
+    padding: 8px 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    border-top: 1px solid #3a516e;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-bar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .mobile-nav-btn {
+        color: white;
+        text-align: center;
+        padding: 8px 5px;
+        flex: 1;
+        text-decoration: none;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all 0.2s ease;
+    }
+    
+    .mobile-nav-btn:hover {
+        background-color: #3a516e;
+    }
+    
+    .mobile-nav-icon {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+    
+    /* Đảm bảo nội dung không bị che */
+    body {
+        padding-bottom: 60px !important;
+    }
+    
+    #content_id {
+        padding-bottom: 20px;
+    }
+}
+
+/* Điều chỉnh cho iPhone có notch */
+@supports (padding: max(0px)) {
+    .mobile-nav-bar {
+        padding-bottom: max(8px, env(safe-area-inset-bottom));
+    }
+}
+
+/* == Add SubMenu Search == *//* ========== SEARCH SUBMENU - MULTI PLATFORM ========== */
+.search-parent-item {
+    position: relative;
+}
+
+/* Desktop/Tablet (hiển thị ngang) */
+@media (min-width: 769px) {
+    .search-submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        min-width: 200px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 1000;
+        border-radius: 4px;
+        padding: 5px 0;
+    }
+    
+    .search-parent-item:hover .search-submenu {
+        display: block;
+    }
+    
+    .search-submenu li {
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .search-submenu a {
+        padding: 8px 15px;
+        white-space: nowrap;
+    }
+}
+
+/* Mobile (hiển thị dọc) */
+@media (max-width: 768px) {
+    .search-submenu {
+        display: none;
+        position: static;
+        background: #f8f9fa;
+        width: 100%;
+        padding: 0;
+        box-shadow: none;
+    }
+    
+    .search-submenu.show {
+        display: block;
+    }
+    
+    .search-submenu li {
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .search-submenu a {
+        padding: 12px 20px;
+    }
+}
+
+/* Common styles for all platforms */
+.search-submenu {
+    list-style: none;
+    margin: 0;
+}
+
+.search-submenu a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.search-submenu a:hover {
+    background-color: #f0f0f0;
+}

@@ -1,0 +1,22 @@
+[build]
+  publish = "public"
+  command = "echo 'Build complete'"
+
+[[redirects]]
+  from = "/languages/en/*"
+  to = "/vn/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Bật chức năng form
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-XSS-Protection = "1; mode=block"

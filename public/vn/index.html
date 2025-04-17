@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Phan Ngô gia phả</title>
+    <link href="/assets/css/default.css" rel="stylesheet" type="text/css" />
+    <script src="/assets/js/back_button.js"></script>
+    <script src="/assets/js/menu.js"></script>
+    <script src="/assets/js/search_person.js"></script>
+  </head>
+  <body class="home_page">
+    <div id="view_id">
+      <div id="header_id">
+        <div id="header_inner_id">
+          <div id="header_emblem_left_id">
+            <img alt="" src="/assets/images/emblem.png" />
+          </div>
+          <div id="header_text_id">
+            <h1>Phan Ngô gia phả</h1>
+          </div>
+        </div>
+      </div>
+      <div id="menu_id"></div>
+      <div id="content_id">
+        <div class="main_heading">
+          <h1>Phan Ngô gia phả</h1>
+        </div>
+        <div class="page_subsection">
+          <div id="page_subsection_canvas_id"></div>
+          <h2>Nhân vật trung tâm</h2>
+          <canvas
+            height="1010"
+            id="person_chart_canvas_id"
+            width="742"
+          ></canvas>
+        </div>
+        <script type="text/javascript">
+          var personChartData = [
+            {
+              left: 210,
+              dateLineSpacing: 12,
+              currentPerson: true,
+              ancestorBoxIndexes: [1, 4],
+              dateTextLines: ["1902"],
+              partnerBoxIndexes: [5, 14],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 66,
+              nameTextLines: ["13.3, Tiên chỉ ", "Phan Bá Khoát"],
+              linkToPersonPage: "/vn/persons/Person_I22040024.html",
+              personExported: true,
+              personGender: 0,
+              top: 90,
+            },
+            {
+              left: 396,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [2, 3],
+              dateTextLines: ["1858-06-29"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 83,
+              nameTextLines: [
+                "12.1 Giáo thụ phủ ",
+                "Quảng Oai Phan ",
+                "Đức Mậu",
+              ],
+              linkToPersonPage: "/vn/persons/Person_I22312879.html",
+              personExported: true,
+              personGender: 0,
+              top: 44.5,
+            },
+            {
+              left: 582,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1834"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 66,
+              nameTextLines: ["11.1 Phan Linh ", "Ứng"],
+              linkToPersonPage: "/vn/persons/Person_I85399635.html",
+              personExported: true,
+              personGender: 0,
+              top: 24,
+            },
+            {
+              left: 582,
+              dateLineSpacing: 0,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: [],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 34,
+              nameTextLines: ["Nguyễn Thị Trâm"],
+              linkToPersonPage: "/vn/persons/Person_I57743638.html",
+              personExported: true,
+              personGender: 1,
+              top: 114,
+            },
+            {
+              left: 396,
+              dateLineSpacing: 0,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: [],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 51,
+              nameTextLines: ["(chánh thất) Đào ", "Thị Đề"],
+              linkToPersonPage: "/vn/persons/Person_I68333148.html",
+              personExported: true,
+              personGender: 1,
+              top: 171.5,
+            },
+            {
+              left: 210,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [6, 7],
+              dateTextLines: ["1900"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [8, 9, 10, 11, 12, 13],
+              height: 49,
+              nameTextLines: ["Nguyễn Thị Tý"],
+              linkToPersonPage: "/vn/persons/Person_I36335892.html",
+              personExported: true,
+              personGender: 1,
+              top: 429,
+            },
+            {
+              left: 396,
+              dateLineSpacing: 0,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: [],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 51,
+              nameTextLines: ["Nguyễn Chánh ", "Đài"],
+              linkToPersonPage: "/vn/persons/Person_90799984.html",
+              personExported: true,
+              personGender: 0,
+              top: 399,
+            },
+            {
+              left: 396,
+              dateLineSpacing: 0,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: [],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 34,
+              nameTextLines: ["Phan Thị Tính"],
+              linkToPersonPage: "/vn/persons/Person_25931756.html",
+              personExported: true,
+              personGender: 1,
+              top: 474.5,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1924"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 49,
+              nameTextLines: ["Phan Thị Bá"],
+              linkToPersonPage: "/vn/persons/Person_I90151004.html",
+              personExported: true,
+              personGender: 1,
+              top: 246,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1928-05-01"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 49,
+              nameTextLines: ["Phan Ðại Thành"],
+              linkToPersonPage: "/vn/persons/Person_I95542177.html",
+              personExported: true,
+              personGender: 0,
+              top: 319,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1937-12-09"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 49,
+              nameTextLines: ["Phan Kế Hùng"],
+              linkToPersonPage: "/vn/persons/Person_I65412265.html",
+              personExported: true,
+              personGender: 0,
+              top: 392,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1940-02-10"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 49,
+              nameTextLines: ["Phan Kế Trần"],
+              linkToPersonPage: "/vn/persons/Person_I35714420.html",
+              personExported: true,
+              personGender: 0,
+              top: 465,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1943"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 49,
+              nameTextLines: ["Phan Quốc Thế"],
+              linkToPersonPage: "/vn/persons/Person_I10841409.html",
+              personExported: true,
+              personGender: 0,
+              top: 538,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1947"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 49,
+              nameTextLines: ["Phan Quốc Chính"],
+              linkToPersonPage: "/vn/persons/Person_I26243456.html",
+              personExported: true,
+              personGender: 0,
+              top: 611,
+            },
+            {
+              left: 210,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1916"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [15, 16, 17, 18],
+              height: 49,
+              nameTextLines: ["Vũ Thị Cúc"],
+              linkToPersonPage: "/vn/persons/Person_I49739977.html",
+              personExported: true,
+              personGender: 1,
+              top: 811,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1939"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 66,
+              nameTextLines: ["Phan Thị Bích ", "Thủy"],
+              linkToPersonPage: "/vn/persons/Person_I42651808.html",
+              personExported: true,
+              personGender: 1,
+              top: 684,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1940-10-20"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 49,
+              nameTextLines: ["Phan Thị Hưng"],
+              linkToPersonPage: "/vn/persons/Person_I38702476.html",
+              personExported: true,
+              personGender: 1,
+              top: 774,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1947"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 66,
+              nameTextLines: ["Phan Thị Kim ", "Liên"],
+              linkToPersonPage: "/vn/persons/Person_I25148456.html",
+              personExported: true,
+              personGender: 1,
+              top: 847,
+            },
+            {
+              left: 24,
+              dateLineSpacing: 12,
+              currentPerson: false,
+              ancestorBoxIndexes: [],
+              dateTextLines: ["1949-12-12"],
+              partnerBoxIndexes: [],
+              width: 136,
+              nameLineSpacing: 14,
+              childBoxIndexes: [],
+              height: 49,
+              nameTextLines: ["Phan Quốc Hội"],
+              linkToPersonPage: "/vn/persons/Person_I5737928.html",
+              personExported: true,
+              personGender: 0,
+              top: 937,
+            },
+          ];
+        </script>
+        <script src="/assets/js/personchart.js" type="text/javascript"></script>
+        <script type="text/javascript">
+          initPersonChart();
+        </script>
+        <div id="home_page_creation_date_id">Created: Mar 24, 2025</div>
+      </div>
+      <div id="separator"></div>
+      <div id="footer_id">
+        <div id="footer_text_id">
+          <a href="https://phantrunglam.netlify.app" target="_blank"
+            >Quản trị viên: Phan Trung Lâm, @Copyright 2025 Phan Ngô Đại tộc</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

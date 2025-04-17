@@ -1,0 +1,19 @@
+# Database
+*.db
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.temp
+/public/data/temp_*
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+
+# Local Netlify folder
+.netlify
