@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Phan Ngô gia phả - Liên hệ</title>
+    <link href="/assets/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+
+    <!-- Thư viện -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Reset và layout tổng thể */
+      body.contact_page {
+        margin: 0;
+        padding: 0;
+        background: #f5f5f5;
+        font-family: Arial, sans-serif;
+      }
+
+      #content_id {
+        max-width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      /* Form container */
+      .fullscreen-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Section styling */
+      .form-section {
+        background: #f9f9f9;
+        padding: 25px;
+        border-radius: 8px;
+      }
+
+      /* Phần người gửi - layout ngang */
+      .sender-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      /* Select2 custom */
+      .select2-container {
+        width: 100% !important;
+        margin: 8px 0 15px !important;
+      }
+
+      /* Comment area */
+      .comment-area textarea {
+        min-height: 250px;
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        line-height: 1.6;
+        resize: vertical;
+      }
+
+      /* Input styling */
+      input[type="text"],
+      input[type="email"],
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 15px;
+        margin: 5px 0 15px;
+      }
+
+      /* File upload */
+      .file-upload {
+        margin: 20px 0;
+      }
+
+      /* Nút submit */
+      .submit-btn {
+        background: #4caf50;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s;
+        justify-self: end;
+      }
+
+      .submit-btn:hover {
+        background: #3e8e41;
+      }
+
+      /* Member card */
+      .member-card {
+        padding: 15px;
+        background: #e8f5e9;
+        border-radius: 5px;
+        margin-top: 15px;
+        display: none;
+      }
+
+      /* Person option styling */
+      .person-option {
+        padding: 8px;
+      }
+
+      .person-name {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      .person-id,
+      .person-birth {
+        font-size: 0.9em;
+        color: #666;
+        display: inline-block;
+        margin-right: 10px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .sender-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .fullscreen-form {
+          padding: 20px;
+        }
+
+        .form-section {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body class="contact_page">
+    <!-- [Phần header và menu giữ nguyên] -->
+
+    <div id="content_id">
+      <div class="main_heading">
+        <h1>Đóng góp thông tin gia phả</h1>
+      </div>
+
+      <form
+        id="submitForm"
+        class="fullscreen-form"
+        method="POST"
+        netlify
+        enctype="multipart/form-data"
+        <!-- // data-netlify-recaptcha="true" -->
+      >
+        <!-- PHẦN THÔNG TIN NGƯỜI GỬI VÀ LIÊN KẾT -->
+        <div class="form-section">
+          <div class="sender-grid">
+            <!-- Phần người gửi -->
+            <div class="member-info">
+              <h3>Thông tin người gửi</h3>
+
+              <label>
+                Bạn là thành viên gia phả?
+                <select id="is_member">
+                  <option value="0">Không, tôi là khách</option>
+                  <option value="1">Có, tôi là thành viên</option>
+                </select>
+              </label>
+
+              <div id="member_info" class="member-search-area">
+                <label>Tìm kiếm thành viên:</label>
+                <input
+                  type="text"
+                  id="member_search"
+                  placeholder="Nhập tên hoặc ID..."
+                />
+                <input type="hidden" id="member_id" name="member_id" />
+                <div id="member_details" class="member-card"></div>
+              </div>
+
+              <div id="manual_info">
+                <label>Họ Tên (*):</label>
+                <input type="text" id="name" name="name" required />
+
+                <label>Email:</label>
+                <input type="email" id="email" name="email" />
+
+                <label>Số điện thoại:</label>
+                <input type="text" id="phone" name="phone" />
+              </div>
+            </div>
+
+            <!-- Phần liên kết nhân vật -->
+            <div class="linked-person">
+              <h3>Liên kết với nhân vật</h3>
+              <p>Chọn nhân vật bạn muốn cập nhật thông tin:</p>
+              <select id="linked_to" name="linked_to" class="js-select2">
+                <option value="none">Chọn nhân vật...</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHẦN NỘI DUNG CHÍNH -->
+        <div class="form-section">
+          <div class="comment-area">
+            <h3>Nội dung đóng góp</h3>
+            <textarea
+              id="comment"
+              name="comment"
+              placeholder="Mô tả chi tiết thông tin bạn muốn cập nhật..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="file-upload">
+            <label>Tải lên tài liệu/hình ảnh (nếu có):</label>
+            <input
+              type="file"
+              id="media"
+              name="media"
+              multiple
+              accept="image/*, .pdf"
+            />
+          </div>
+        </div>
+
+        <!-- reCAPTCHA -->
+        <div data-netlify-recaptcha="true" style="margin: 20px 0"></div>
+
+        <button type="submit" class="submit-btn">Gửi thông tin</button>
+      </form>
+    </div>
+
+    <!-- [Phần footer giữ nguyên] -->
+
+    <!-- Script -->
+    <script src="/assets/js/back_button.js"></script>
+    <script src="/assets/js/menu.js"></script>
+    <script src="/assets/js/search_person.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        let allPersons = [];
+
+        // 1. Tải dữ liệu
+        function loadPersonData() {
+          $.getJSON("/data/person_list.json")
+            .done(function (data) {
+              allPersons = data;
+              initSelect2();
+              initMemberSearch();
+            })
+            .fail(function (xhr, status, error) {
+              console.error("Lỗi tải JSON:", error);
+              alert(
+                "Không tải được danh sách thành viên. Vui lòng tải lại trang."
+              );
+            });
+        }
+
+        // 2. Select2 cho người liên kết
+        function initSelect2() {
+          $(".js-select2").select2({
+            data: allPersons.map((p) => ({
+              id: p.person_id,
+              text: formatPersonText(p),
+              person: p,
+            })),
+            placeholder: "Gõ tên, ID hoặc năm sinh...",
+            width: "100%",
+            minimumInputLength: 1,
+            templateResult: formatPersonOption,
+            templateSelection: formatPersonSelection,
+          });
+        }
+
+        function formatPersonText(person) {
+          let text = `${person.person_name} (ID: ${person.person_id})`;
+          if (person.person_birthday && person.person_birthday.trim() !== "") {
+            text += ` - Sinh: ${person.person_birthday}`;
+          }
+          return text;
+        }
+
+        function formatPersonOption(person) {
+          if (!person.id) return person.text;
+
+          const $container = $(
+            `<div class="person-option">
+          <span class="person-name">${person.person.person_name}</span>
+          <span class="person-id">ID: ${person.person.person_id}</span>
+          ${
+            person.person.person_birthday
+              ? `<span class="person-birth">Sinh: ${person.person.person_birthday}</span>`
+              : ""
+          }
+        </div>`
+          );
+          return $container;
+        }
+
+        function formatPersonSelection(person) {
+          return person.text || "Chọn nhân vật...";
+        }
+
+        // 3. Xử lý tìm kiếm thành viên
+        function initMemberSearch() {
+          $("#is_member")
+            .change(function () {
+              const isMember = $(this).val() === "1";
+              $("#member_info").toggle(isMember);
+              $("#manual_info").toggle(!isMember);
+            })
+            .trigger("change");
+
+          $("#member_search")
+            .autocomplete({
+              source: function (request, response) {
+                const term = request.term.toLowerCase();
+                const results = allPersons
+                  .filter(
+                    (p) =>
+                      p.person_name.toLowerCase().includes(term) ||
+                      p.person_id.toLowerCase().includes(term)
+                  )
+                  .slice(0, 10);
+                response(results);
+              },
+              select: function (event, ui) {
+                showMemberDetails(ui.item);
+                return false;
+              },
+            })
+            .autocomplete("instance")._renderItem = function (ul, item) {
+            return $("<li>")
+              .append(
+                `<div><strong>${item.person_name}</strong> <small>${item.person_id}</small></div>`
+              )
+              .appendTo(ul);
+          };
+        }
+
+        // 4. Hiển thị thông tin thành viên
+        function showMemberDetails(person) {
+          $("#member_details")
+            .html(
+              `
+        <h4>${person.person_name}</h4>
+        <p><strong>ID:</strong> ${person.person_id}</p>
+        ${
+          person.person_birthday
+            ? `<p><strong>Sinh năm:</strong> ${person.person_birthday}</p>`
+            : ""
+        }
+        <button type="button" class="confirm-btn">Xác nhận chọn</button>
+      `
+            )
+            .show();
+
+          $(".confirm-btn").click(function () {
+            $("#name").val(person.person_name);
+            $("#member_id").val(person.person_id);
+          });
+        }
+
+        // Khởi chạy
+        loadPersonData();
+      });
+    </script>
+  </body>
+</html>

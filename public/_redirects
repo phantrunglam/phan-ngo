@@ -1,5 +1,0 @@
-/resources/*  /media/:splat  200
-/scripts/*  /assets/js/:splat  200
-/languages/en/*  /vn/:splat  301
-/languages/vn/*  /vn/:splat  301
-/*     /vn/index.html          200

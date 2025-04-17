@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="pandoc" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<title>help-toc</title>
+<style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+<!-- <script src="/scripts/menu.js"></script> -->
+</head>
+<body>
+<h1>
+Hướng Dẫn sử sụng Website
+</h1>
+<p><img src="main-menu.png"/> #### <a class="uri" href="https://phantrunglam.netlify.app">https://phantrunglam.netlify.app</a></p>
+<h1 id="mục-lục">Mục lục</h1>
+<ul>
+<li><a href="#giới-thiệu" id="toc-giới-thiệu">1. Giới thiệu</a>
+<ul>
+<li><a href="#mục-đích-của-trang-web" id="toc-mục-đích-của-trang-web">1.1 Mục đích của trang Web</a></li>
+<li><a href="#cách-tổ-chức-thông-tin-gia-phả" id="toc-cách-tổ-chức-thông-tin-gia-phả">1.2 Cách tổ chức thông tin Gia
+phả</a></li>
+<li><a href="#các-thành-phần-thông-tin" id="toc-các-thành-phần-thông-tin">1.2.1 Các thành phần thông
+tin</a></li>
+<li><a href="#b.-gia-đình" id="toc-b.-gia-đình">B. Gia đình</a></li>
+<li><a href="#c.-media-hình-ảnh-videopdf" id="toc-c.-media-hình-ảnh-videopdf">C. Media (Hình ảnh,
+video,PDF)</a></li>
+<li><a href="#d.-các-sự-kiện" id="toc-d.-các-sự-kiện">D. Các Sự
+kiện</a></li>
+<li><a href="#e.-địa-điểm" id="toc-e.-địa-điểm">E. Địa điểm</a></li>
+<li><a href="#f.-câu-truyện" id="toc-f.-câu-truyện">F. Câu
+Truyện</a></li>
+<li><a href="#các-tính-năng-chính" id="toc-các-tính-năng-chính">1.3 Các
+tính năng chính</a></li>
+</ul></li>
+<li><a href="#cách-tìm-kiếm-thông-tin" id="toc-cách-tìm-kiếm-thông-tin">2. Cách tìm kiếm thông tin</a>
+<ul>
+<li><a href="#tìm-kiếm-nhân-vật" id="toc-tìm-kiếm-nhân-vật">2.1 🔍 Tìm
+kiếm Nhân vật</a></li>
+<li><a href="#tìm-kiếm-theo-họ" id="toc-tìm-kiếm-theo-họ">2.2 🔍 Tìm
+kiếm theo Họ</a></li>
+<li><a href="#tìm-kiếm-theo-gia-đình-1" id="toc-tìm-kiếm-theo-gia-đình-1">2.3 🔍 Tìm kiếm theo Gia đình</a></li>
+<li><a href="#xem-các-nguồn-tham-chiếu" id="toc-xem-các-nguồn-tham-chiếu">2.4 🔍 Xem các Nguồn tham
+chiếu</a></li>
+</ul></li>
+<li><a href="#cách-xem-thông-tin-chi-tiết" id="toc-cách-xem-thông-tin-chi-tiết">3. Cách xem thông tin chi tiết</a>
+<ul>
+<li><a href="#thông-tin-nhân-vật" id="toc-thông-tin-nhân-vật">3.1 📜
+Thông tin Nhân vật</a></li>
+</ul></li>
+<li><a href="#các-chức-năng-bổ-trợ" id="toc-các-chức-năng-bổ-trợ">4. Các
+chức năng bổ trợ</a></li>
+<li><a href="#tương-tác-góp-ý" id="toc-tương-tác-góp-ý">5. Tương tác,
+Góp ý</a>
+<ul>
+<li><a href="#cách-đóng-góp-thông-tin" id="toc-cách-đóng-góp-thông-tin">5.1 Cách đóng góp thông tin</a></li>
+</ul></li>
+<li><a href="#liên-hệ-hỗ-trợ" id="toc-liên-hệ-hỗ-trợ">6. Liên hệ hỗ
+trợ</a></li>
+</ul>
+<h2 id="giới-thiệu">1. Giới thiệu</h2>
+<h3 id="mục-đích-của-trang-web">1.1 Mục đích của trang Web</h3>
+<ul>
+<li>Trang Web này là Trang Gia phả của Đại gia tộc Phan Ngô dòng Tống
+Văn Thái bình.</li>
+<li>Trang Web gia phả các Thành viên của Đại gia tộc xem thông tin gia
+đình một cách trực quan, biết được truyền thống Tổ tiên, thông tin gia
+đình, anh em, họ hàng.</li>
+<li>Trang Web cũng là nơi các Thành viên chia sẻ, góp ý giúp cho thông
+tin gia phả Dòng họ ta được chính xác, đầy đủ hơn.
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h3 id="cách-tổ-chức-thông-tin-gia-phả">1.2 Cách tổ chức thông tin Gia
+phả</h3></p></p></li>
+</ul>
+<h3 id="các-thành-phần-thông-tin">1.2.1 Các thành phần thông tin</h3>
+Các đối tượng được lưu trữ chính trong hệ thống gia phả gồm có:
+<strong>Nhân vật, Gia đình, Media (Hình ảnh/Video/PDF), Ghi chú, Sự
+kiện, Địa điểm, Phả đồ, Nguồn tham chiếu</strong> #### A. Nhân vật Nhân
+vật là con người có thông tin trong Gia phả. Các thông tin được lưu gồm
+có:
+<p>
+<ol type="1">
+<li><strong>Họ, Tên</strong>, Các chức danh, danh xưng, tên khác
+<p></p></li>
+<li><strong>Ngày tháng năm sinh</strong>, nơi sinh
+<p></p></li>
+<li><strong>Ngày mất</strong>, nơi chôn cất (nếu đã khuất)
+<p></p></li>
+<li>Các <strong>Ghi chú</strong> về <strong>Nhân vật</strong> như Công
+danh, sự nghiệp, tính cách, v.v.
+<p></p></li>
+<li><strong>Quê quán</strong>
+<p></p></li>
+<li><strong>Các đặc điểm</strong> khác về con người
+<p></p></li>
+<li><strong>Các sự kiện trong cuộc đời</strong> như Đi học, đi làm, cưới
+vợ/chồng, xây nhà, chuyển chỗ ở, công việc, nghỉ hưu… Các loại sự kiện
+có thể định nghĩa thêm
+<p></p></li>
+<li>Các quan hệ gia đình:
+<p></p></li>
+</ol>
+<ul>
+<li>Người đó là con ai hoặc con trong Gia đình nào
+<p></p></li>
+<li>Người đó có vợ/chồng là ai, có những người con nào
+<p></p></li>
+</ul>
+<ol start="8" type="1">
+<li>Các hình ảnh, tài liệu liên quan. Ảnh đại diện
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h3 id="b.-gia-đình">B. Gia đình</h3></p></p></li>
+<li>Vợ/chồng</li>
+<li>Con cái</li>
+<li>Các sự kiện gia đình</li>
+<li>Các <strong>Ghi chú</strong> liên quan đến <strong>Gia
+đình</strong></li>
+<li>Các media (hình ảnh, video, PDF) liên quan
+<p>
+<figure>
+<img alt="Gia đình" src="info-family.png"/>
+<figcaption aria-hidden="true">Gia đình</figcaption>
+</figure>
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p></p></p></p></li>
+</ol>
+<h3 id="c.-media-hình-ảnh-videopdf">C. Media (Hình ảnh, video,PDF)</h3>
+Các media có thể được lưu trong hệ thống và gắn với mọi đối tượng như
+Nhân vật, Gia đình, Sự kiện
+<p>
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h3 id="d.-các-sự-kiện">D. Các Sự kiện</h3>
+Các <strong>Sự kiện</strong> là sự kiện quan trọng xảy ra với Nhân vật,
+Gia đình như Nhập học, Tốt nghiệp, Hôn nhân, Chỗ ở, Công việc, v.v. Mỗi
+Sự kiện đều có thuộc tính như:
+<p>
+<ul>
+<li>Loại sự kiện, Ngày tháng, Địa điểm, Ghi chú, Media gắn cùng
+<p></p></li>
+<li>Các Sự kiện có thể của Nhân vật hay của Gia đình.
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h3 id="e.-địa-điểm">E. Địa điểm</h3></p></p></li>
+</ul>
+Các <strong>Địa điểm</strong> là địa điểm có liên quan của Sự kiện trong
+Gia phả. Địa điểm gồm tên, phường, xã, huyên, thành phố, vị trí kinh
+độ/vị đỗ. Việc quản lý các Địa điểm giúp người lập Gia phả gắn kế địa
+danh vào sự kiện nhanh và chính xác.
+<p>
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h3 id="f.-câu-truyện">F. Câu Truyện</h3>
+Câu Truyện là nơi ghi lại những Sự kiện trọng đại chung của Dòng họ. Câu
+truyện có Chủ đề, Mô tả, Thời gian bắt đầu, kết thúc.
+<p>
+Mỗi câu truyện cũng được chia làm các Câu truyện nhỏ chi tiết hơn với
+viết gắn vào Hình ảnh, Ghi chú.
+<p>
+<img src="info-story.png"/>
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h4 id="nguồn-thông-tin-tham-chiếu.">1.2.1 Nguồn thông tin tham
+chiếu.</h4>
+<ul>
+<li>Thông tin trong trang Web về các thành viên của Đại gia đình Họ tộc
+Phan Ngô Tống Văn được tác giả thu thập, tra cứu và nhập vào hệ thống
+Cây gia phả từ năm 2005. <strong>Các nguồn thông tin được liệt kê trong
+mục “Nguồn tham chiếu”</strong>,</li>
+<li>Các nguồn này là các bộ Gia phả quý của Họ tộc, ví dụ:</li>
+<li>2 cuốn <strong>Ngô gia thế phả</strong>, <strong>Ngô gia thế phả tục
+biên</strong> của <strong>Cụ Phan Cảnh Tung</strong>;</li>
+<li><strong>Ngô Pha gia phả của cụ Phan Bá Khoát</strong> (ông nội và là
+người truyền cảm hứng cho tác giả thực hiện công việc này!)</li>
+<li><strong>Gia phả Họ Ngô Đồng Phang</strong></li>
+<li>Cấc tài liệu biên soạn lại từ các cuốn phả cổ, ghi chép của gia đình
+cá nhân như cuốn “Tâm niệm tiền ân gia đình cụ Phan Bá Khoát” của ông
+Phan Kế Hùng.</li>
+<li>Tác giả cũng thu thập thông tin từ các thành viên của Đại gia đình
+qua Survey, hỏi chuyện, và các nghiên cứ từ các nguồn thông tin đại
+chúng khác.
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h3 id="các-tính-năng-chính">1.3 Các tính năng chính</h3></p></p></li>
+</ul>
+<figure>
+<img alt="Alt text" src="main-menu.png" title="Optional title"/>
+<figcaption aria-hidden="true">Alt text</figcaption>
+</figure>
+<h4 id="tra-cứu-nguồn-thông-tin-tham-chiếu">1.3.2 Tra cứu Nguồn Thông
+tin tham chiếu</h4>
+<h4 id="tìm-kiếm-theo-nhân-vật">1.3.3 Tìm kiếm theo Nhân vật</h4>
+<h4 id="tìm-kiếm-theo-họ-tộc">1.3.4 Tìm kiếm theo Họ tộc</h4>
+<h4 id="tìm-kiếm-theo-gia-đình">1.3.5 Tìm kiếm theo Gia đình</h4>
+<h4 id="xem-thông-tin-chi-tiết-của-nhân-vật">1.3.6 Xem thông tin chi
+tiết của Nhân vật</h4>
+<h4 id="xem-thông-tin-gia-đình">1.3.7 Xem thông tin gia đình</h4>
+<h4 id="xem-các-phả-đồ-đã-tạo-sẵn">1.3.8 Xem các Phả đồ đã tạo sẵn</h4>
+<h4 id="tương-tác-với-tác-giả-góp-ý-và-bổ-sung-hình-ảnh-tư-liệu-cho-ban-liên-lạc-họ-tộc">1.3.9
+Tương tác với Tác giả (góp ý và bổ sung hình ảnh, tư liệu cho Ban liên
+lạc Họ tộc)</h4>
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h2 id="cách-tìm-kiếm-thông-tin">2. Cách tìm kiếm thông tin</h2>
+<h3 id="tìm-kiếm-nhân-vật">2.1 🔍 Tìm kiếm Nhân vật</h3>
+<figure>
+<img alt="Menu Tìm kiếm Nhân vật" src="menu-search.png" title="Tìm kiếm Nhân vật"/>
+<figcaption aria-hidden="true">Menu Tìm kiếm Nhân vật</figcaption>
+</figure>
+<ul>
+<li>Trên thanh menu chính nhập tên nhân vật vào ô “Tìm kiếm nhân vật…”
+<strong>ở phía ngoài cùng bên phải</strong>.</li>
+<li>Có thể nhập Họ tên đầy đủ, hoặc chỉ nhập Tên (nhập tiếng Việt cho
+chính xác)</li>
+<li>Chọn kết quả từ danh sách hiển thị các nhân vật có một phần tên / họ
+trùng với chuỗi tìm kiếm.</li>
+<li>Nhân vật được chọn sẽ trở thành Nhân vật Trung tâm và Phả đồ của
+người đó.
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h3 id="tìm-kiếm-theo-họ">2.2 🔍 Tìm kiếm theo Họ</h3></p></p></li>
+<li>Bấm vào “Họ tộc” trên Menu chính.</li>
+<li>Bấm vào chữ cái bên dưới Menu để hiển thị các Nhân vật có Họ bắt đầu
+bằng chữ cái đó.</li>
+<li>Ví dụ: Bấm vào “P”, danh sách các Nhân vật có Họ là Phan, Phạm, vv
+sẽ hiện ra bên dưới.</li>
+<li>Chọn và Bấm vào Tên của Nhân vật cần tìm</li>
+<li>Nhân vật đó sẽ được hiển thị như Nhân vật trung tâm</li>
+</ul>
+<figure>
+<img alt="Menu Tìm kiếm theo Họ" src="menu-search-persons.png" title="Tìm kiếm theo Họ"/>
+<figcaption aria-hidden="true">Menu Tìm kiếm theo Họ</figcaption>
+</figure>
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h3 id="tìm-kiếm-theo-gia-đình-1">2.3 🔍 Tìm kiếm theo Gia đình</h3>
+<ul>
+<li>Bấm vào “Gia đình” trên Menu chính.</li>
+<li>Bấm vào chữ cái bên dưới Menu để hiển thị các Gia đình có người
+chồng có Họ bắt đầu bằng chữ cái đó.</li>
+<li>Ví dụ: Bấm vào “P”, danh sách các Nhân vật có Họ là Phan, Phạm, vv
+sẽ hiện ra bên dưới.</li>
+<li>Chọn và Bấm vào Tên của Nhân vật cần tìm</li>
+<li>Nhân vật đó sẽ được hiển thị như Nhân vật trung tâm</li>
+</ul>
+<figure>
+<img alt="Menu Tìm kiếm theo Gia đình" src="menu-search-family.png" title="Tìm kiếm Gia đình"/>
+<figcaption aria-hidden="true">Menu Tìm kiếm theo Gia đình</figcaption>
+</figure>
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h3 id="xem-các-nguồn-tham-chiếu">2.4 🔍 Xem các Nguồn tham chiếu</h3>
+<ul>
+<li><p>Bấm vào “Nguồn tham chiếu” trên Menu chính. <img alt="Menu Nguồn thham chiếu" src="menu-sources.png" title="Nguồn tham chiếu"/></p></li>
+<li><p>Danh sách các Nguồn tài liệu tham chiếu là “cơ sở cho các thông
+tin về Nhân vật, gia đình và các thông tin khác trong Gia phả” này sẽ
+hiện ra bên dưới.</p></li>
+<li><p>Chọn và Bấm vào Tên của Nguồn tham chiếu</p></li>
+<li><p>Chi tiết của Nguồn và các thông tin tham chiếu được hiện ra <img alt="Nguồn thham chiếu" src="info-source.png" title="Chi tiết Nguồn tham chiếu"/></p>
+<p>
+<p><a href="#mục-lục">Quay về Mục lục</a></p>
+<p>
+<h2 id="cách-xem-thông-tin-chi-tiết">3. Cách xem thông tin chi
+tiết</h2></p></p></li>
+</ul>
+<h3 id="thông-tin-nhân-vật">3.1 📜 Thông tin Nhân vật</h3>
+<ul>
+<li>Họ và Tên (ví dụ Phan Bá Khoát)</li>
+<li>Số định danh GEDCOM: ví dụ I22040024 là mã số duy nhất gắn kết Nhân
+vật với các đặc điểm sinh học, các sự kiện, các media, và quan hệ với
+các thành viên gia đình ![Thông tin Nhân vật] (info-person.png “Chi tiết
+Nhân vật”)</li>
+</ul>
+<p>Bên dưới là Phả đồ 🌳 (sơ đồ gia phả của nhân vật) của Nhân vật trung
+tâm được thể hiện. &gt; Nhân vật trung tâm được vẽ trong Ô màu xanh sáng
+&gt; Bên trái là Bố Mẹ và Ông Bà của Nhân vật &gt; Bên dưới là Vợ/Chồng
+&gt; Bên phải là Các con - Các biểu tượng và màu sắc trên sơ đồ</p>
+&lt;a style=“background-color:Violet”;&gt; Phụ nữ 
+<p>
+Hộp màu Tím là Phụ nữ <a style="background-color:DodgerBlue;"> Đàn ông
+</a></p>
+<p>Hộp màu</p>
+<h4 id="cách-di-chuyển-và-mở-rộng-sơ-đồ">Cách di chuyển và mở rộng sơ
+đồ</h4>
+Bấm vào mỗi hộp thì sẽ chuyển người đó thành Nhân vật trung tâm. Bấm vào
+Hộp phía bên Trái sẽ đi dần về Tổ tiên: bố mẹ, ông bà, cụ, kỵ. Bấm về
+bên Phải và xem thông tin về con cháu, chắt.
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h2 id="các-chức-năng-bổ-trợ">4. Các chức năng bổ trợ</h2>
+• 🌐 Chọn ngôn ngữ
+<p>
+• 📅 Xem sự kiện gia đình theo dòng thời gian
+<p>
+• 📌 Sử dụng nút Back để quay lại trang trước
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h2 id="tương-tác-góp-ý">5. Tương tác, Góp ý</h2>
+<h3 id="cách-đóng-góp-thông-tin">5.1 Cách đóng góp thông tin</h3>
+<ol type="1">
+<li>📥 Thêm/Sửa thông tin nhân vật</li>
+<li>Liên hệ với người quản lý hệ thống</li>
+<li>📸 Thêm hình ảnh, tài liệu</li>
+<li>Cách tải lên và liên kết với nhân vật
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+<h2 id="liên-hệ-hỗ-trợ">6. Liên hệ hỗ trợ</h2></p></p></li>
+</ol>
+📧 Email: ngophangiapha@gmail.com 📞 Số điện thoại: 0989428xxx <img alt="Contact" src="menu-info-contact.png" title="Contact - Liên lạc"/>
+<p>
+<a href="#mục-lục">Quay về Mục lục</a>
+<p>
+
+</body>
+</html>

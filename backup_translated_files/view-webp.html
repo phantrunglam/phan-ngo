@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vn">
+  <head>
+    <!-- ... (giữ nguyên phần head) ... -->
+  </head>
+  <body>
+    <div class="viewer-container">
+      <img id="image" alt="Chart Image" />
+      <div class="controls">
+        <button onclick="resetImage()">Đặt lại</button>
+        <button onclick="zoomIn()">+</button>
+        <button onclick="zoomOut()">-</button>
+        <button id="btnClose">Đóng</button>
+      </div>
+    </div>
+    <script>
+      let scale = 1;
+      let img = document.getElementById("image");
+      let isDragging = false;
+      let startX,
+        startY,
+        imgX = 0,
+        imgY = 0;
+      const viewer = document.querySelector(".viewer-container");
+
+      // Load ảnh từ tham số URL
+      function loadImage() {
+        const params = new URLSearchParams(window.location.search);
+        const imagePath = params.get("image");
+
+        if (!imagePath) {
+          console.error("Không có đường dẫn ảnh được cung cấp");
+          document.body.innerHTML =
+            '<p style="color:red">Lỗi: Không có ảnh để hiển thị</p>';
+          return;
+        }
+
+        // Thử các định dạng ảnh khác nhau
+        const formats = [".jpeg", ".webp", ".jpg", ".png"];
+        let currentFormat = 0;
+
+        const tryNextFormat = () => {
+          if (currentFormat >= formats.length) {
+            console.error("Không tìm thấy ảnh ở bất kỳ định dạng nào");
+            img.alt = "Không thể tải ảnh";
+            return;
+          }
+
+          img.src = `${imagePath}${formats[currentFormat]}`;
+          currentFormat++;
+        };
+
+        img.onerror = tryNextFormat;
+        tryNextFormat();
+      }
+
+      // Xử lý sự kiện kéo thả
+      function setupDragEvents() {
+        img.addEventListener("mousedown", function (e) {
+          isDragging = true;
+          startX = e.clientX - imgX;
+          startY = e.clientY - imgY;
+          img.style.cursor = "grabbing";
+        });
+
+        window.addEventListener("mousemove", function (e) {
+          if (!isDragging) return;
+          imgX = e.clientX - startX;
+          imgY = e.clientY - startY;
+          updateTransform();
+        });
+
+        window.addEventListener("mouseup", function () {
+          isDragging = false;
+          img.style.cursor = "grab";
+        });
+      }
+
+      // Xử lý zoom
+      function setupZoom() {
+        viewer.addEventListener("wheel", (e) => {
+          e.preventDefault();
+          if (e.deltaY < 0) zoomIn();
+          else zoomOut();
+        });
+      }
+
+      // Các hàm zoom
+      function zoomIn() {
+        scale += 0.2;
+        updateTransform();
+      }
+
+      function zoomOut() {
+        scale = Math.max(0.5, scale - 0.2);
+        updateTransform();
+      }
+
+      function resetImage() {
+        scale = 1;
+        imgX = 0;
+        imgY = 0;
+        updateTransform();
+      }
+
+      function updateTransform() {
+        img.style.transform = `translate(${imgX}px, ${imgY}px) scale(${scale})`;
+      }
+
+      // Khởi tạo
+      document.addEventListener("DOMContentLoaded", function () {
+        loadImage();
+        setupDragEvents();
+        setupZoom();
+
+        document
+          .getElementById("btnClose")
+          .addEventListener("click", function () {
+            window.close();
+          });
+      });
+    </script>
+  </body>
+</html>

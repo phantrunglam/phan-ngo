@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Phan Ngô gia phả - Charts</title>
+    <link href="/assets/css/default.css" rel="stylesheet" type="text/css" />
+    <script src="/assets/js/back_button.js"></script>
+    <script src="/assets/js/menu.js"></script>
+    <script src="/assets/js/search_person.js"></script>
+
+    <link href="/favicon.ico" rel="icon" type="image/x-icon" />
+  </head>
+  <body class="chart_list_page">
+    <div id="view_id">
+      <div id="header_id">
+        <div id="header_inner_id">
+          <div id="header_emblem_left_id">
+            <img alt="" src="/assets/images/emblem.png" />
+          </div>
+          <div id="header_text_id">
+            <h1>Phan Ngô gia phả</h1>
+          </div>
+        </div>
+      </div>
+      <div id="menu_id"></div>
+      <div id="content_id">
+        <div class="page_subsection">
+          <h2>Danh sách Charts</h2>
+          <ul id="chart_list"></ul>
+        </div>
+      </div>
+      <div id="separator"></div>
+      <div id="footer_id">
+        <div id="footer_text_id">
+          <a href="https://phan-ngo.netlify.app" target="_blank">
+            Quản trị viên: Phan Trung Lâm, @Copyright 2025 Phan Ngô Đại tộc
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/data/chart-list.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const chartList = document.getElementById("chart_list");
+            chartList.innerHTML = ""; // Xóa danh sách cũ trước khi thêm mới
+
+            data.forEach((chart) => {
+              let listItem = document.createElement("li");
+              let link = document.createElement("a");
+              link.href = "#";
+              link.textContent = chart.image_desc;
+              link.addEventListener("click", function (event) {
+                event.preventDefault();
+                openChartPopup(chart.image_path);
+              });
+              listItem.appendChild(link);
+              chartList.appendChild(listItem);
+            });
+          })
+          .catch((error) =>
+            console.error("Lỗi khi tải danh sách charts:", error)
+          );
+      });
+
+      function openChartPopup(imagePath) {
+        let width = screen.width * 0.9;
+        let height = screen.height * 0.9;
+        let features = `width=${width},height=${height},top=50,left=50,resizable=yes,scrollbars=yes`;
+        let url = `/vn/view-webp.html?image=${encodeURIComponent(imagePath)}`;
+        window.open(url, "chartPopup", features);
+      }
+    </script>
+
+    <script src="/assets/js/chart-viewer.js"></script>
+  </body>
+</html>
