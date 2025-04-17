@@ -2,20 +2,36 @@
   publish = "public"
   command = "echo 'Build complete'"
 
+# Giữ nguyên redirect cũ
 [[redirects]]
   from = "/languages/en/*"
   to = "/vn/:splat"
   status = 301
 
+# ✅ ADD THESE RULES TO ALLOW NETLIFY TO PARSE FORMS
+[[redirects]]
+  from = "/vn/feedback.html"
+  to = "/vn/feedback.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/vn/thank-you.html"
+  to = "/vn/thank-you.html"
+  status = 200
+  force = true
+
+# 🔥 Catch-all SPA redirect — keep it LAST
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# Bật chức năng form
+# Optional: Function build setting
 [functions]
   node_bundler = "esbuild"
 
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
