@@ -1,35 +1,4 @@
 /* ==================== */
-/* 1. FONT FACE DEFINITIONS */
-/* ==================== */
-/* last change: 2025-03-30 */
-@font-face {
-  font-family: "BeVietnamPro";
-  src: url("/assets/fonts/BeVietnamPro-Light.eot");
-  src: url("/assets/fonts/BeVietnamPro-Light.eot?#iefix")
-      format("embedded-opentype"),
-    url("/assets/fonts/BeVietnamPro-Light.woff") format("woff"),
-    url("/assets/fonts/BeVietnamPro-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "BeVietnamPro";
-  src: url("/assets/fonts/BeVietnamPro-Bold.eot");
-  src: url("/assets/fonts/BeVietnamPro-Bold.eot?#iefix")
-      format("embedded-opentype"),
-    url("/assets/fonts/BeVietnamPro-Bold.woff") format("woff"),
-    url("/assets/fonts/BeVietnamPro-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* Gợi ý dùng font */
-body {
-  font-family: "BeVietnamPro", sans-serif;
-}
-
-/* ==================== */
 /* 2. BASE STYLES */
 /* ==================== */
 body {
@@ -41,9 +10,9 @@ body {
   background-repeat: repeat-x;
   background-position: center top;
   background-attachment: fixed;
-  font-family: "Tahoma", sans-serif;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
   font-size: 13px;
-  font-weight: lighter;
+  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -145,8 +114,9 @@ img {
 #header_text_id h1 {
   padding: 0px;
   margin: 0px;
-  font-size: 80px;
-  white-space: normal;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 60px;
+  white-space: "white-space-collapse";
 }
 
 /* Menu styles - Responsive */
