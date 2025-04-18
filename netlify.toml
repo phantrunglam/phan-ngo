@@ -24,7 +24,7 @@
 # 🔥 Catch-all SPA redirect — keep it LAST
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/vn/index.html"
   status = 200
 
 # Optional: Function build setting
