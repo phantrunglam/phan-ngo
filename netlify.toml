@@ -21,6 +21,11 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/"
+  to = "/vn/index.html"
+  status = 200
+
 # 🔥 Catch-all SPA redirect — keep it LAST
 [[redirects]]
   from = "/*"
