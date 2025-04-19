@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xem PDF gia phả</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background-color: #525659;
+      }
+
+      .control-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .control-panel button {
+        padding: 8px 15px;
+        background: #4a6ea9;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        min-width: 80px;
+      }
+
+      .control-panel button:hover {
+        background: #3a5a8c;
+      }
+
+      .page-info {
+        color: white;
+        margin: 0 15px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+      }
+
+      #pdf-container {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .pdf-page {
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background: white;
+      }
+
+      .loading {
+        color: white;
+        font-size: 18px;
+        margin-top: 100px;
+      }
+
+      .error {
+        color: red;
+        font-size: 18px;
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="control-panel">
+      <button onclick="zoomIn()">Phóng to (+)</button>
+      <button onclick="zoomOut()">Thu nhỏ (-)</button>
+      <button onclick="resetZoom()">100%</button>
+
+      <button onclick="prevPage()" id="btn-prev">← Trang trước</button>
+      <span class="page-info" id="page-info">Trang 1/1</span>
+      <button onclick="nextPage()" id="btn-next">Trang sau →</button>
+
+      <button onclick="window.close()" style="margin-left: auto">Đóng</button>
+    </div>
+
+    <div id="pdf-container">
+      <p class="loading">Đang tải tài liệu...</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js";
+
+      let pdfDoc = null,
+        currentPage = 1,
+        scale = 1.0,
+        maxScale = 3.0,
+        minScale = 0.5;
+
+      function loadPdf() {
+        const pdfPath = new URLSearchParams(window.location.search).get("pdf");
+
+        if (!pdfPath) {
+          showError("Không có đường dẫn PDF được cung cấp");
+          return;
+        }
+
+        pdfjsLib
+          .getDocument(pdfPath)
+          .promise.then(function (pdf) {
+            pdfDoc = pdf;
+            updatePageControls();
+            renderAllPages();
+          })
+          .catch(function (error) {
+            console.error("Lỗi tải PDF:", error);
+            showError(
+              "Không thể tải tài liệu. Vui lòng kiểm tra lại đường dẫn."
+            );
+          });
+      }
+
+      async function renderAllPages() {
+        const container = document.getElementById("pdf-container");
+        container.innerHTML = "";
+
+        for (let i = 1; i <= pdfDoc.numPages; i++) {
+          const page = await pdfDoc.getPage(i);
+          const viewport = page.getViewport({ scale: scale });
+
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+          canvas.className = "pdf-page";
+
+          container.appendChild(canvas);
+
+          await page.render({
+            canvasContext: ctx,
+            viewport: viewport,
+          }).promise;
+        }
+
+        updatePageControls();
+        scrollToPage();
+      }
+
+      function updatePageControls() {
+        document.getElementById(
+          "page-info"
+        ).textContent = `Trang ${currentPage}/${pdfDoc.numPages}`;
+
+        document.getElementById("btn-prev").disabled = currentPage <= 1;
+        document.getElementById("btn-next").disabled =
+          currentPage >= pdfDoc.numPages;
+      }
+
+      function zoomIn() {
+        if (scale < maxScale) {
+          scale = Math.min(scale + 0.2, maxScale);
+          renderAllPages();
+        }
+      }
+
+      function zoomOut() {
+        if (scale > minScale) {
+          scale = Math.max(scale - 0.2, minScale);
+          renderAllPages();
+        }
+      }
+
+      function resetZoom() {
+        scale = 1.0;
+        renderAllPages();
+      }
+
+      function prevPage() {
+        if (currentPage > 1) {
+          currentPage--;
+          scrollToPage();
+        }
+      }
+
+      function nextPage() {
+        if (currentPage < pdfDoc.numPages) {
+          currentPage++;
+          scrollToPage();
+        }
+      }
+
+      function scrollToPage() {
+        const pages = document.getElementsByClassName("pdf-page");
+        if (pages.length >= currentPage) {
+          pages[currentPage - 1].scrollIntoView({ behavior: "smooth" });
+          updatePageControls();
+        }
+      }
+
+      function showError(message) {
+        const container = document.getElementById("pdf-container");
+        container.innerHTML = `<p class="error">${message}</p>`;
+      }
+
+      window.onload = loadPdf;
+    </script>
+  </body>
+</html>

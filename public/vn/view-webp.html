@@ -1,18 +1,85 @@
 <!DOCTYPE html>
 <html lang="vn">
   <head>
-    <!-- ... (giữ nguyên phần head) ... -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xem ảnh gia phả</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Panel điều khiển cố định phía trên */
+      .control-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .control-panel button {
+        padding: 8px 15px;
+        background: #4a6ea9;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .control-panel button:hover {
+        background: #3a5a8c;
+      }
+
+      /* Container cho ảnh */
+      .image-container {
+        position: absolute;
+        top: 50px; /* Để tránh panel điều khiển */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f0f0;
+      }
+
+      #image {
+        max-width: 100%;
+        max-height: 100%;
+        cursor: grab;
+        transition: transform 0.1s ease;
+      }
+
+      #image.grabbing {
+        cursor: grabbing;
+      }
+    </style>
   </head>
   <body>
-    <div class="viewer-container">
-      <img id="image" alt="Chart Image" />
-      <div class="controls">
-        <button onclick="resetImage()">Đặt lại</button>
-        <button onclick="zoomIn()">+</button>
-        <button onclick="zoomOut()">-</button>
-        <button id="btnClose">Đóng</button>
-      </div>
+    <!-- Panel điều khiển cố định -->
+    <div class="control-panel">
+      <button onclick="zoomIn()">Phóng to (+)</button>
+      <button onclick="zoomOut()">Thu nhỏ (-)</button>
+      <button onclick="resetImage()">Đặt lại</button>
+      <button onclick="window.close()">Đóng</button>
     </div>
+
+    <!-- Container chứa ảnh -->
+    <div class="image-container">
+      <img id="image" alt="Chart Image" />
+    </div>
+
     <script>
       let scale = 1;
       let img = document.getElementById("image");
@@ -21,7 +88,6 @@
         startY,
         imgX = 0,
         imgY = 0;
-      const viewer = document.querySelector(".viewer-container");
 
       // Load ảnh từ tham số URL
       function loadImage() {
@@ -30,19 +96,21 @@
 
         if (!imagePath) {
           console.error("Không có đường dẫn ảnh được cung cấp");
-          document.body.innerHTML =
-            '<p style="color:red">Lỗi: Không có ảnh để hiển thị</p>';
+          document.querySelector(".image-container").innerHTML =
+            '<p style="color:red; padding:20px;">Lỗi: Không có ảnh để hiển thị</p>';
           return;
         }
 
         // Thử các định dạng ảnh khác nhau
-        const formats = [".jpeg", ".webp", ".jpg", ".png"];
+        const formats = [".webp", ".jpeg", ".jpg", ".png"];
         let currentFormat = 0;
 
         const tryNextFormat = () => {
           if (currentFormat >= formats.length) {
             console.error("Không tìm thấy ảnh ở bất kỳ định dạng nào");
             img.alt = "Không thể tải ảnh";
+            document.querySelector(".image-container").innerHTML =
+              '<p style="color:red; padding:20px;">Không thể tải ảnh. Vui lòng kiểm tra lại đường dẫn.</p>';
             return;
           }
 
@@ -60,7 +128,8 @@
           isDragging = true;
           startX = e.clientX - imgX;
           startY = e.clientY - imgY;
-          img.style.cursor = "grabbing";
+          img.classList.add("grabbing");
+          e.preventDefault();
         });
 
         window.addEventListener("mousemove", function (e) {
@@ -68,21 +137,24 @@
           imgX = e.clientX - startX;
           imgY = e.clientY - startY;
           updateTransform();
+          e.preventDefault();
         });
 
         window.addEventListener("mouseup", function () {
           isDragging = false;
-          img.style.cursor = "grab";
+          img.classList.remove("grabbing");
         });
       }
 
-      // Xử lý zoom
+      // Xử lý zoom bằng chuột
       function setupZoom() {
-        viewer.addEventListener("wheel", (e) => {
-          e.preventDefault();
-          if (e.deltaY < 0) zoomIn();
-          else zoomOut();
-        });
+        document
+          .querySelector(".image-container")
+          .addEventListener("wheel", (e) => {
+            e.preventDefault();
+            if (e.deltaY < 0) zoomIn();
+            else zoomOut();
+          });
       }
 
       // Các hàm zoom
@@ -112,12 +184,6 @@
         loadImage();
         setupDragEvents();
         setupZoom();
-
-        document
-          .getElementById("btnClose")
-          .addEventListener("click", function () {
-            window.close();
-          });
       });
     </script>
   </body>

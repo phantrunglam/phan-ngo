@@ -9,6 +9,73 @@
     <script src="/assets/js/menu.js"></script>
     <script src="/assets/js/search_person.js"></script>
 
+    <style>
+      /* CSS tùy chỉnh cho trang danh sách */
+      .chart_list_page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #content_id {
+        flex: 1;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      #chart_list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 15px;
+      }
+
+      #chart_list li {
+        background: #f8f9fa;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+      }
+
+      #chart_list li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      #chart_list a {
+        display: block;
+        padding: 15px;
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 1.5;
+        word-break: break-word; /* Xử lý text dài */
+      }
+
+      #chart_list a:hover {
+        background: #e9ecef;
+      }
+
+      .page_subsection h2 {
+        margin-bottom: 20px;
+        color: #2c3e50;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      @media (max-width: 768px) {
+        #chart_list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
     <link href="/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body class="chart_list_page">
@@ -39,41 +106,6 @@
         </div>
       </div>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("/data/chart-list.json")
-          .then((response) => response.json())
-          .then((data) => {
-            const chartList = document.getElementById("chart_list");
-            chartList.innerHTML = ""; // Xóa danh sách cũ trước khi thêm mới
-
-            data.forEach((chart) => {
-              let listItem = document.createElement("li");
-              let link = document.createElement("a");
-              link.href = "#";
-              link.textContent = chart.image_desc;
-              link.addEventListener("click", function (event) {
-                event.preventDefault();
-                openChartPopup(chart.image_path);
-              });
-              listItem.appendChild(link);
-              chartList.appendChild(listItem);
-            });
-          })
-          .catch((error) =>
-            console.error("Lỗi khi tải danh sách charts:", error)
-          );
-      });
-
-      function openChartPopup(imagePath) {
-        let width = screen.width * 0.9;
-        let height = screen.height * 0.9;
-        let features = `width=${width},height=${height},top=50,left=50,resizable=yes,scrollbars=yes`;
-        let url = `/vn/view-webp.html?image=${encodeURIComponent(imagePath)}`;
-        window.open(url, "chartPopup", features);
-      }
-    </script>
 
     <script src="/assets/js/chart-viewer.js"></script>
   </body>

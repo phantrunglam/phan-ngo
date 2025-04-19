@@ -1,22 +1,38 @@
 [
   {
-    "image_id": "PTL_4073961826170869593",
-    "image_desc": "Đại gia đình Phan Bá Khoát, Phả hệ",
-    "image_path": "/media/Phan Bá Khoát - phả hệ"
-  },
-  {
-    "image_id": "4073961826170869593",
-    "image_desc": "13.3 Phan Bá Khoát, con cháu",
-    "image_path": "/media/Chart_4073961826170869593"
-  },
-  {
     "image_id": "Chart_4073961826170869593",
     "image_desc": "13.3 Phan Bá Khoát, tổ tiên & con cháu",
-    "image_path": "/media/Chart_4073961830465836891"
+    "image_path": "/charts/Chart_4073961830465836891",
+    "file_type": "image"
   },
   {
     "image_id": "Chart_4073961826170869593",
-    "image_desc": "1 Phan Phúc Toàn, con cháu",
-    "image_path": "/media/Chart_4073961828318353242"
+    "image_desc": "13.3 Phan Bá Khoát, con cháu",
+    "image_path": "/charts/Chart_4073961826170869593",
+    "file_type": "image"
+  },
+  {
+    "image_id": "Chart_4073961826170869593",
+    "image_desc": "1 Phan Phúc Toàn, con cháu - file jpeg",
+    "image_path": "/charts/Chart_4073961828318353242",
+    "file_type": "image"
+  },
+  {
+    "image_id": "PTL_4073961826170869593",
+    "image_desc": "Đại gia đình Phan Bá Khoát, Phả hệ",
+    "image_path": "/charts/Phan Bá Khoát - phả hệ",
+    "file_type": "image"
+  },
+  {
+    "image_id": "PTL_4073961826170861969",
+    "image_desc": "Đại gia đình Phan Bá Khoát, Phả hệ PDF 1 page",
+    "image_path": "/charts/07-NGO PHAN PHA HE-hàng ngang.pdf",
+    "file_type": "pdf"
+  },
+  {
+    "image_id": "PTL_4073961826170861969",
+    "image_desc": "Đại gia đình Phan Bá Khoát, Phả hệ PDF multi-page",
+    "image_path": "/charts/07-NGO PHAN PHA HE.drawio.pdf",
+    "file_type": "pdf"
   }
 ]
