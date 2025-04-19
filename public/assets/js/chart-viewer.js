@@ -3,61 +3,43 @@ let retryCount = 0;
 
 function initChartViewer() {
   const chartList = document.getElementById("chart_list");
-  const viewerFrame = document.getElementById("chart_viewer_iframe");
-
-  if (!chartList || !viewerFrame) {
-    if (retryCount < MAX_RETRIES) {
-      retryCount++;
-      setTimeout(initChartViewer, 500); // Thử lại sau 500ms
-      return;
-    }
-    console.error("Essential elements not found after retries");
-    return;
-  }
-
-  // Phần còn lại của code...
 
   if (!chartList) {
-    console.error("Chart list container not found");
+    if (retryCount < MAX_RETRIES) {
+      retryCount++;
+      setTimeout(initChartViewer, 500);
+      return;
+    }
+    console.error("Không tìm thấy danh sách chart");
     return;
   }
 
-  // Hàm hiển thị chart trong iframe
-  const showChart = (imagePath) => {
-    if (!viewerFrame) {
-      console.error("Viewer iframe not found");
-      return;
-    }
+  // Hàm mở popup/pdf tùy loại file
+  const openChart = (chart) => {
+    const width = screen.width * 0.9;
+    const height = screen.height * 0.9;
+    const features = `width=${width},height=${height},top=50,left=50,resizable=yes,scrollbars=yes`;
 
-    try {
-      const encodedPath = encodeURIComponent(imagePath);
-      viewerFrame.src = `/view-webp.html?image=${encodedPath}`;
-
-      // Hiển thị iframe nếu đang ẩn
-      if (viewerFrame.style.display === "none") {
-        viewerFrame.style.display = "block";
-      }
-    } catch (error) {
-      console.error("Error loading chart:", error);
-      alert("Không thể tải biểu đồ. Vui lòng thử lại.");
+    if (chart.file_type === "pdf") {
+      // Sửa: Không thêm .pdf nữa vì đã có trong path
+      const url = `/vn/view-pdf.html?pdf=${encodeURIComponent(
+        chart.image_path
+      )}`;
+      window.open(url, "pdfViewer", features);
+    } else {
+      const url = `/vn/view-webp.html?image=${encodeURIComponent(
+        chart.image_path
+      )}`;
+      window.open(url, "imageViewer", features);
     }
   };
 
-  // Load danh sách chart
+  // Tải danh sách từ JSON
   fetch("/data/chart-list.json")
-    .then((response) => {
-      if (!response.ok)
-        throw new Error(`HTTP error! status: ${response.status}`);
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((data) => {
-      if (!Array.isArray(data))
-        throw new Error("Invalid data format: expected array");
-
-      // Xóa nội dung cũ
       chartList.innerHTML = "";
 
-      // Thêm mỗi chart vào danh sách
       data.forEach((chart) => {
         if (!chart.image_path || !chart.image_desc) {
           console.warn("Invalid chart item:", chart);
@@ -71,7 +53,7 @@ function initChartViewer() {
         link.textContent = chart.image_desc;
         link.onclick = (e) => {
           e.preventDefault();
-          showChart(chart.image_path);
+          openChart(chart);
         };
 
         listItem.appendChild(link);
@@ -79,9 +61,9 @@ function initChartViewer() {
       });
     })
     .catch((error) => {
-      console.error("Error loading chart list:", error);
+      console.error("Lỗi tải danh sách:", error);
       chartList.innerHTML =
-        '<li class="error">Không tải được danh sách biểu đồ. Vui lòng tải lại trang.</li>';
+        '<li class="error">Không tải được danh sách. Vui lòng thử lại.</li>';
     });
 }
 
