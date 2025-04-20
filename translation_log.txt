@@ -35,9 +35,18 @@
   - Date of Death -> Ngày mất (1 lần)
 
 📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/chartlist.html
-📝 Đã dịch 2 cụm từ:
+📝 Đã dịch 11 cụm từ:
+  - Charts -> Phả đồ (1 lần)
+  - Home -> Trang chủ (1 lần)
+  - Persons -> Họ tộc (1 lần)
+  - Families -> Gia đình (1 lần)
+  - Sources -> Nguồn tham chiếu (1 lần)
+  - Charts -> Phả đồ (1 lần)
+  - Statistics -> Thống kê (1 lần)
+  - Imprint -> Liên hệ (1 lần)
   - Charts -> Phả đồ (1 lần)
   - Charts -> Phả đồ (1 lần)
+  - Name -> Tên (1 lần)
 
 📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/personlist_8.html
 📝 Đã dịch 15 cụm từ:
@@ -57,10 +66,16 @@
   - Place of Death -> Nơi mất (1 lần)
   - Date of Death -> Ngày mất (1 lần)
 
-📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/feedback.html
-📝 Đã dịch 2 cụm từ:
-  - Person -> Nhân vật (5 lần)
-  - Search -> Tìm kiếm (1 lần)
+📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/index.html
+📝 Đã dịch 8 cụm từ:
+  - Home -> Trang chủ (1 lần)
+  - Persons -> Họ tộc (1 lần)
+  - Families -> Gia đình (1 lần)
+  - Sources -> Nguồn tham chiếu (1 lần)
+  - Charts -> Phả đồ (1 lần)
+  - Statistics -> Thống kê (1 lần)
+  - Imprint -> Liên hệ (1 lần)
+  - Focused Person Chart -> Nhân vật trung tâm (1 lần)
 
 📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/personlist_9.html
 📝 Đã dịch 15 cụm từ:
@@ -116,11 +131,22 @@
   - Date of Death -> Ngày mất (1 lần)
 
 📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/contact.html
-📝 Đã dịch 4 cụm từ:
-  - Family -> Gia đình (1 lần)
-  - Person -> Nhân vật (5 lần)
-  - Birth -> Sinh (1 lần)
+📝 Đã dịch 15 cụm từ:
+  - Home -> Trang chủ (1 lần)
+  - Persons -> Họ tộc (1 lần)
+  - Families -> Gia đình (1 lần)
+  - Sources -> Nguồn tham chiếu (1 lần)
+  - Charts -> Phả đồ (1 lần)
+  - Statistics -> Thống kê (1 lần)
+  - Imprint -> Liên hệ (1 lần)
+  - Imprint -> Liên hệ (1 lần)
+  - Author contact -> Liên hệ Tác giả (1 lần)
   - Name -> Tên (1 lần)
+  - Synium Contact -> Ban đại diện Gia tộc (1 lần)
+  - Company -> Gia tộc (1 lần)
+  - Synium Software GmbH Germany -> Họ Phan Ngô Tống Văn (1 lần)
+  - Mac App Store -> Phiên bản (1 lần)
+  - MacFamilyTree 10 -> Phát hành 1.1 (1 lần)
 
 📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/personlist_2.html
 📝 Đã dịch 15 cụm từ:
@@ -417,10 +443,6 @@
   - Date of Birth -> Ngày sinh (1 lần)
   - Place of Death -> Nơi mất (1 lần)
   - Date of Death -> Ngày mất (1 lần)
-
-📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/thank-you.html
-📝 Đã dịch 1 cụm từ:
-  - Family -> Gia đình (1 lần)
 
 📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/personlist_7.html
 📝 Đã dịch 15 cụm từ:
@@ -47320,13 +47342,6 @@
   - Imprint -> Liên hệ (1 lần)
   - Other event -> Sự kiện khác (1 lần)
   - Other event -> Sự kiện khác (1 lần)
-  - Person -> Nhân vật (1 lần)
-
-📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/help/help.html
-📝 Đã dịch 4 cụm từ:
-  - Family -> Gia đình (1 lần)
-  - Print -> In (1 lần)
-  - Page -> Trang (1 lần)
   - Person -> Nhân vật (1 lần)
 
 📄 File: /Users/phantrunglam/Desktop/phanngo/public/vn/families/Family_F64741776.html
