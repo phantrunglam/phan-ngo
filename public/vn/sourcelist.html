@@ -1,214 +1,271 @@
 <!DOCTYPE html>
+
 <html>
-	<head>
-		<meta charset="UTF-8" />
-<title>Phan Ngô gia phả - Nguồn tham chiếu</title>
-<link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
-	
-                        <script src="/assets/js/menu.js"></script>
-                        <script src="/assets/js/back_button.js"></script>
-                        <script src="/assets/js/search_person.js"></script>
-                    
-</head>
-	<body class="source_list_page">
-        
-       	<div id="view_id">
+<head>
+<meta charset="utf-8"/>
+<title>PHAN NGÔ GIA PHẢ - Nguồn tham chiếu</title>
+<link href="/assets/css/default.css" rel="stylesheet" type="text/css"/>
+
+<script src="/assets/js/menu.js"></script>
+<script src="/assets/js/back_button.js"></script>
+<script src="/assets/js/search_person.js"></script>
+
+<style>
+            /* Tooltip styles */
+            .menu_item { position: relative; }
+            .menu_item::after {
+                content: attr(data-tooltip);
+                position: absolute;
+                bottom: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #333;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s, visibility 0.3s;
+                z-index: 100;
+            }
+            .menu_item:hover::after { opacity: 1; visibility: visible; }
             
-            <div id="header_id">
-                <div id="header_inner_id">
-                    <div id="header_emblem_left_id">
-<img src="/media/emblem.png" alt="" />
+            /* Responsive styles */
+            @media (max-width: 768px) {
+                #menu_row_id { display: none; }
+                #hamburger-btn { display: block; }
+            }
+        </style>
+</head>
+<body class="source_list_page">
+<div id="view_id">
+<div id="header_id">
+<div id="header_inner_id">
+<div id="header_emblem_left_id">
+<img alt="" src="../../assets/images/emblem.png"/>
 </div>
 <div id="header_text_id">
-	<h1>Phan Ngô gia phả</h1>
+<h1>PHAN NGÔ GIA PHẢ</h1>
 </div>
-                </div>
-            </div>
-            
-            <div id="separator"></div>
-            
-            <div id="menu_id">
-                <ul id="menu_row_id">
-	<li class="menu_item">
-		<a href="/vn/index.html">Trang chủ</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/personlist.html">Họ tộc</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/familylist.html">Gia đình</a>
-	</li>
-	<li class="menu_item active_menu_item">
-		<a href="/vn/sourcelist.html">Nguồn tham chiếu</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/chartlist.html">Phả đồ</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/statistics.html">Thống kê</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/contact.html">Liên hệ</a>
-	</li>
+</div>
+</div>
+<div id="separator"></div>
+<div id="menu_id">
+<ul id="menu_row_id">
+<li class="menu_item active_menu_item" data-tooltip="Trang chủ gia phả">
+<a href="/vn/index.html">Trang chủ</a>
+</li>
+<li class="menu_item search_item">
+<input id="search_input" placeholder="Tìm kiếm Nhân vật..." type="text"/>
+<div class="search-dropdown"></div>
+</li>
+<li class="menu_item" data-tooltip="Danh sách thành viên họ tộc">
+<a href="/vn/personlist.html">Họ tộc</a>
+</li>
+<li class="menu_item" data-tooltip="Danh sách các gia đình">
+<a href="/vn/familylist.html">Gia đình</a>
+</li>
+<li class="menu_item" data-tooltip="Các phả đồ gia phả">
+<a href="/vn/chartlist.html">Phả đồ</a>
+</li>
+<li class="menu_item" data-tooltip="Nguồn tài liệu tham khảo">
+<a href="/vn/sourcelist.html">Nguồn tham chiếu</a>
+</li>
+<li class="menu_item" data-tooltip="Các Thống kê về thành viên gia tộc">
+<a href="/vn/statistics.html">Thống kê</a>
+</li>
+<li class="menu_item has_submenu"> <a href="#">Liên hệ</a>
+<ul class="submenu">
+<li><a href="/vn/contact-google-form.html">Cập nhật thông tin thành viên</a></li>
+<li><a href="/vn/feedback.html">Trao đổi góp ý</a></li>
 </ul>
-            </div>
-            
-            <div id="separator"></div>
-            
-            <div id="content_id">
-                <div class="main_heading">
-	<h1>List of Nguồn tham chiếu</h1>
+</li>
+<li class="menu_item" data-tooltip="Hướng dẫn sử dụng" id="help-trigger">
+<a href="#">Hướng dẫn</a>
+</li>
+<li class="menu_item" data-tooltip="Quay lại trang trước">
+<button id="back_button" onclick="window.history.back();">⬅ Back</button>
+</li>
+</ul>
+</div>
+<div id="separator"></div>
+<div id="content_id">
+<div class="main_heading">
+<h1>List of Nguồn tham chiếu</h1>
 </div>
 <div class="page_subsection">
-	<h2>List of Nguồn tham chiếu</h2>
+<h2>List of Nguồn tham chiếu</h2>
 <table>
-	<thead>
-		<tr>
-			<th>Tên</th>
-			<th>Ngày</th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><a href="/vn/sources/Source_S23174496.html"><img src="/media/Bullet.png" alt="" />Chuyện "Người bạn ngày nhỏ" - Tập truyện Má - ,</a></td>
-			<td>1976</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S87651272.html"><img src="/media/Bullet.png" alt="" />Chuyện chị chồng tôi - của Nguyễn Thị Vinh Quy, 10/2021 Hà nội</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S67761753.html"><img src="/media/Bullet.png" alt="" />Facebook</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S4794144.html"><img src="/media/Bullet.png" alt="" />Gia phả Họ Ngô Đồng Phang</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S80370400.html"><img src="/media/Bullet.png" alt="" />Gia phả Phan Ngô - Việt nam gia phả</a></td>
-			<td></td>
-			<td><img src="/media/HasNoteIcon.png" alt="" /></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S5838006.html"><img src="/media/Bullet.png" alt="" />LỊCH SỬ HỌ NGÔ VIỆT NAM</a></td>
-			<td>1988</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S12346790.html"><img src="/media/Bullet.png" alt="" />NGÔ GIA PHỔ HỆ - Phan Đức Mậu</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S49438144.html"><img src="/media/Bullet.png" alt="" />Ngô Gia Thế Phả - Phan Cảnh Tung</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_2928256.html"><img src="/media/Bullet.png" alt="" />Ngô gia thế phả - PTL typed</a></td>
-			<td>2024-09-23</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S4907458.html"><img src="/media/Bullet.png" alt="" />Ngô Phan Gia phả -  Phan Bá Khoát</a></td>
-			<td>1952</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S14779204.html"><img src="/media/Bullet.png" alt="" />Phả đồ họ Nguyễn Hữu - làng Phú Xuân, TP Thái Bình, Nguyễn Hữu Phỏng</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_87121993.html"><img src="/media/Bullet.png" alt="" />Phả hệ họ Ngô Việt nam Tập 1</a></td>
-			<td>2020</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_88388216.html"><img src="/media/Bullet.png" alt="" />Phả hệ họ Ngô Việt nam Tập 2</a></td>
-			<td>2020</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S93120832.html"><img src="/media/Bullet.png" alt="" />Phan Gia Thế Phả tục biên</a></td>
-			<td>2005-10-10</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_48862336.html"><img src="/media/Bullet.png" alt="" />Phan Kế Hùng, Tâm niệm Tiền Ân Gia đình cụ Phan Bá Khoát</a></td>
-			<td>2009</td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S95178020.html"><img src="/media/Bullet.png" alt="" />Phan Trung Lâm sưu tập</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_15153311.html"><img src="/media/Bullet.png" alt="" />Phan Xuân Trường, Phan Tặng, Ngô gia phổ tộc chí</a></td>
-			<td>2023</td>
-			<td><img src="/media/HasNoteIcon.png" alt="" /></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S42939687.html"><img src="/media/Bullet.png" alt="" />Sơ đồ Phả tộc Dòng họ Phan Ngô Chi 3, Phan Minh Đức et. al.</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S0015.html"><img src="/media/Bullet.png" alt="" />Tài liệu gia phả của Ông Phan PhụngTuân</a></td>
-			<td>2014-12-03</td>
-			<td><img src="/media/HasNoteIcon.png" alt="" /></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S87696144.html"><img src="/media/Bullet.png" alt="" />Trang Web Họ Ngô Việt nam</a></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><a href="/vn/sources/Source_S20146742.html"><img src="/media/Bullet.png" alt="" />Wikipedia</a></td>
-			<td></td>
-			<td><img src="/media/HasNoteIcon.png" alt="" /></td>
-			<td></td>
-		</tr>
-	</tbody>
+<thead>
+<tr>
+<th>Tên</th>
+<th>Ngày</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/vn/sources/Source_S23174496.html"><img alt="" src="/media/Bullet.png"/>Chuyện "Người bạn ngày nhỏ" - Tập truyện Má - ,</a></td>
+<td>1976</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S87651272.html"><img alt="" src="/media/Bullet.png"/>Chuyện chị chồng tôi - của Nguyễn Thị Vinh Quy, 10/2021 Hà nội</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S67761753.html"><img alt="" src="/media/Bullet.png"/>Facebook</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S4794144.html"><img alt="" src="/media/Bullet.png"/>Gia phả Họ Ngô Đồng Phang</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S80370400.html"><img alt="" src="/media/Bullet.png"/>Gia phả Phan Ngô - Việt nam gia phả</a></td>
+<td></td>
+<td><img alt="" src="/media/HasNoteIcon.png"/></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S5838006.html"><img alt="" src="/media/Bullet.png"/>LỊCH SỬ HỌ NGÔ VIỆT NAM</a></td>
+<td>1988</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S12346790.html"><img alt="" src="/media/Bullet.png"/>NGÔ GIA PHỔ HỆ - Phan Đức Mậu</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S49438144.html"><img alt="" src="/media/Bullet.png"/>Ngô Gia Thế Phả - Phan Cảnh Tung</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_2928256.html"><img alt="" src="/media/Bullet.png"/>Ngô gia thế phả - PTL typed</a></td>
+<td>2024-09-23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S4907458.html"><img alt="" src="/media/Bullet.png"/>Ngô Phan Gia phả -  Phan Bá Khoát</a></td>
+<td>1952</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S14779204.html"><img alt="" src="/media/Bullet.png"/>Phả đồ họ Nguyễn Hữu - làng Phú Xuân, TP Thái Bình, Nguyễn Hữu Phỏng</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_87121993.html"><img alt="" src="/media/Bullet.png"/>Phả hệ họ Ngô Việt nam Tập 1</a></td>
+<td>2020</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_88388216.html"><img alt="" src="/media/Bullet.png"/>Phả hệ họ Ngô Việt nam Tập 2</a></td>
+<td>2020</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S93120832.html"><img alt="" src="/media/Bullet.png"/>Phan Gia Thế Phả tục biên</a></td>
+<td>2005-10-10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_48862336.html"><img alt="" src="/media/Bullet.png"/>Phan Kế Hùng, Tâm niệm Tiền Ân Gia đình cụ Phan Bá Khoát</a></td>
+<td>2009</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S95178020.html"><img alt="" src="/media/Bullet.png"/>Phan Trung Lâm sưu tập</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_15153311.html"><img alt="" src="/media/Bullet.png"/>Phan Xuân Trường, Phan Tặng, Ngô gia phổ tộc chí</a></td>
+<td>2023</td>
+<td><img alt="" src="/media/HasNoteIcon.png"/></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S42939687.html"><img alt="" src="/media/Bullet.png"/>Sơ đồ Phả tộc Dòng họ Phan Ngô Chi 3, Phan Minh Đức et. al.</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S0015.html"><img alt="" src="/media/Bullet.png"/>Tài liệu gia phả của Ông Phan PhụngTuân</a></td>
+<td>2014-12-03</td>
+<td><img alt="" src="/media/HasNoteIcon.png"/></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S87696144.html"><img alt="" src="/media/Bullet.png"/>Trang Web Họ Ngô Việt nam</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/sources/Source_S20146742.html"><img alt="" src="/media/Bullet.png"/>Wikipedia</a></td>
+<td></td>
+<td><img alt="" src="/media/HasNoteIcon.png"/></td>
+<td></td>
+</tr>
+</tbody>
 </table>
 </div>
-            </div>
-            
-            <div id="separator"></div>
-            
-            <div id="footer_id">
-                <div id="footer_text_id">
-<a target="_blank" href="https://phantrunglam.netlify.app/contact.html">Quản trị viên Phan Trung Lâm, @Copyright 2025</a>
 </div>
-            </div>
-        </div>
-	</body>
+<div id="separator"></div>
+<div id="footer_id">
+<div id="footer_text_id">
+<a href="https://phantrunglam.netlify.app/contact.html" target="_blank">Quản trị viên Phan Trung Lâm, @Copyright 2025</a>
+</div>
+</div>
+</div>
+
+<script>
+            function setupResponsiveMenu() {
+                const menu = document.getElementById('menu_row_id');
+                const hamburger = document.createElement('button');
+                hamburger.id = 'hamburger-btn';
+                hamburger.innerHTML = '☰ Menu';
+                
+                if (window.innerWidth <= 768) {
+                    menu.parentNode.insertBefore(hamburger, menu);
+                    menu.style.display = 'none';
+                    hamburger.addEventListener('click', () => {
+                        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+                    });
+                }
+                
+                window.addEventListener('resize', () => {
+                    clearTimeout(this.resizeTimer);
+                    this.resizeTimer = setTimeout(setupResponsiveMenu, 200);
+                });
+            }
+            document.addEventListener('DOMContentLoaded', setupResponsiveMenu);
+        </script>
+</body>
 </html>

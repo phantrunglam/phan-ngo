@@ -1,146 +1,200 @@
 <!DOCTYPE html>
+
 <html>
-	<head>
-		<meta charset="UTF-8" />
-<title>Phan Ngô gia phả - Phan Đông / -</title>
-<link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
-	
-                        <script src="/assets/js/menu.js"></script>
-                        <script src="/assets/js/back_button.js"></script>
-                        <script src="/assets/js/search_person.js"></script>
-                    
-</head>
-	<body class="family_page">
-        
-       	<div id="view_id">
+<head>
+<meta charset="utf-8"/>
+<title>PHAN NGÔ GIA PHẢ - Phan Đông / -</title>
+<link href="/assets/css/default.css" rel="stylesheet" type="text/css"/>
+
+<script src="/assets/js/menu.js"></script>
+<script src="/assets/js/back_button.js"></script>
+<script src="/assets/js/search_person.js"></script>
+
+<style>
+            /* Tooltip styles */
+            .menu_item { position: relative; }
+            .menu_item::after {
+                content: attr(data-tooltip);
+                position: absolute;
+                bottom: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #333;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s, visibility 0.3s;
+                z-index: 100;
+            }
+            .menu_item:hover::after { opacity: 1; visibility: visible; }
             
-            <div id="header_id">
-                <div id="header_inner_id">
-                    <div id="header_emblem_left_id">
-<img src="/media/emblem.png" alt="" />
+            /* Responsive styles */
+            @media (max-width: 768px) {
+                #menu_row_id { display: none; }
+                #hamburger-btn { display: block; }
+            }
+        </style>
+</head>
+<body class="family_page">
+<div id="view_id">
+<div id="header_id">
+<div id="header_inner_id">
+<div id="header_emblem_left_id">
+<img alt="" src="../../../assets/images/emblem.png"/>
 </div>
 <div id="header_text_id">
-	<h1>Phan Ngô gia phả</h1>
+<h1>PHAN NGÔ GIA PHẢ</h1>
 </div>
-                </div>
-            </div>
-            
-            <div id="separator"></div>
-            
-            <div id="menu_id">
-                <ul id="menu_row_id">
-	<li class="menu_item">
-		<a href="/vn/index.html">Trang chủ</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/personlist.html">Họ tộc</a>
-	</li>
-	<li class="menu_item active_menu_item">
-		<a href="/vn/familylist.html">Gia đình</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/sourcelist.html">Nguồn tham chiếu</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/chartlist.html">Phả đồ</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/statistics.html">Thống kê</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/contact.html">Liên hệ</a>
-	</li>
+</div>
+</div>
+<div id="separator"></div>
+<div id="menu_id">
+<ul id="menu_row_id">
+<li class="menu_item active_menu_item" data-tooltip="Trang chủ gia phả">
+<a href="/vn/index.html">Trang chủ</a>
+</li>
+<li class="menu_item search_item">
+<input id="search_input" placeholder="Tìm kiếm Nhân vật..." type="text"/>
+<div class="search-dropdown"></div>
+</li>
+<li class="menu_item" data-tooltip="Danh sách thành viên họ tộc">
+<a href="/vn/personlist.html">Họ tộc</a>
+</li>
+<li class="menu_item" data-tooltip="Danh sách các gia đình">
+<a href="/vn/familylist.html">Gia đình</a>
+</li>
+<li class="menu_item" data-tooltip="Các phả đồ gia phả">
+<a href="/vn/chartlist.html">Phả đồ</a>
+</li>
+<li class="menu_item" data-tooltip="Nguồn tài liệu tham khảo">
+<a href="/vn/sourcelist.html">Nguồn tham chiếu</a>
+</li>
+<li class="menu_item" data-tooltip="Các Thống kê về thành viên gia tộc">
+<a href="/vn/statistics.html">Thống kê</a>
+</li>
+<li class="menu_item has_submenu"> <a href="#">Liên hệ</a>
+<ul class="submenu">
+<li><a href="/vn/contact-google-form.html">Cập nhật thông tin thành viên</a></li>
+<li><a href="/vn/feedback.html">Trao đổi góp ý</a></li>
 </ul>
-            </div>
-            
-            <div id="separator"></div>
-            
-            <div id="content_id">
-                <div class="main_heading">
-	<h1>Phan Đông / -</h1>
+</li>
+<li class="menu_item" data-tooltip="Hướng dẫn sử dụng" id="help-trigger">
+<a href="#">Hướng dẫn</a>
+</li>
+<li class="menu_item" data-tooltip="Quay lại trang trước">
+<button id="back_button" onclick="window.history.back();">⬅ Back</button>
+</li>
+</ul>
+</div>
+<div id="separator"></div>
+<div id="content_id">
+<div class="main_heading">
+<h1>Phan Đông / -</h1>
 </div>
 <div class="page_subsection">
-	<h2>Cha</h2>
+<h2>Cha</h2>
 <table>
-	<thead>
-		<tr>
-			<th class="table_data_left_aligned">Tên</th>
-			<th class="table_data_left_aligned">Nơi sinh</th>
-			<th class="table_data_left_aligned">Ngày sinh</th>
-			<th class="table_data_left_aligned">Nơi mất</th>
-			<th class="table_data_left_aligned">Ngày mất</th>
-		</tr>
-	</thead>
-	<tr>
-		<td><a href="/vn/persons/Person_I53867959.html"><img src="/media/GenderMale.png" alt="" />Phan Đông</a></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
+<thead>
+<tr>
+<th class="table_data_left_aligned">Tên</th>
+<th class="table_data_left_aligned">Nơi sinh</th>
+<th class="table_data_left_aligned">Ngày sinh</th>
+<th class="table_data_left_aligned">Nơi mất</th>
+<th class="table_data_left_aligned">Ngày mất</th>
+</tr>
+</thead>
+<tr>
+<td><a href="/vn/persons/Person_I53867959.html"><img alt="" src="/media/GenderMale.png"/>Phan Đông</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </table>
 </div>
-
 <div class="page_subsection">
-	<h2>Mẹ</h2>
+<h2>Mẹ</h2>
 <table>
-	<thead>
-		<tr>
-			<th class="table_data_left_aligned">Tên</th>
-			<th class="table_data_left_aligned">Nơi sinh</th>
-			<th class="table_data_left_aligned">Ngày sinh</th>
-			<th class="table_data_left_aligned">Nơi mất</th>
-			<th class="table_data_left_aligned">Ngày mất</th>
-		</tr>
-	</thead>
-	<tr class="not_exported">
-		<td>Nhân vật not exported due to privacy Cấu hình</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
+<thead>
+<tr>
+<th class="table_data_left_aligned">Tên</th>
+<th class="table_data_left_aligned">Nơi sinh</th>
+<th class="table_data_left_aligned">Ngày sinh</th>
+<th class="table_data_left_aligned">Nơi mất</th>
+<th class="table_data_left_aligned">Ngày mất</th>
+</tr>
+</thead>
+<tr class="not_exported">
+<td>Nhân vật not exported due to privacy Cấu hình</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </table>
 </div>
-
 <div class="page_subsection">
-	<h2>Con cái</h2>
+<h2>Con cái</h2>
 <table>
-	<thead>
-		<tr>
-			<th class="table_data_left_aligned">Tên</th>
-			<th class="table_data_left_aligned">Nơi sinh</th>
-			<th class="table_data_left_aligned">Ngày sinh</th>
-			<th class="table_data_left_aligned">Nơi mất</th>
-			<th class="table_data_left_aligned">Ngày mất</th>
-		</tr>
-	</thead>
-	<tr>
-		<td><a href="/vn/persons/Person_I7567498.html"><img src="/media/GenderMale.png" alt="" />Phan Châu</a></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	<tr>
-		<td><a href="/vn/persons/Person_I6746879.html"><img src="/media/GenderMale.png" alt="" />Phan Phú</a></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
+<thead>
+<tr>
+<th class="table_data_left_aligned">Tên</th>
+<th class="table_data_left_aligned">Nơi sinh</th>
+<th class="table_data_left_aligned">Ngày sinh</th>
+<th class="table_data_left_aligned">Nơi mất</th>
+<th class="table_data_left_aligned">Ngày mất</th>
+</tr>
+</thead>
+<tr>
+<td><a href="/vn/persons/Person_I7567498.html"><img alt="" src="/media/GenderMale.png"/>Phan Châu</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="/vn/persons/Person_I6746879.html"><img alt="" src="/media/GenderMale.png"/>Phan Phú</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </table>
 </div>
-
-            </div>
-            
-            <div id="separator"></div>
-            
-            <div id="footer_id">
-                <div id="footer_text_id">
-<a target="_blank" href="https://phantrunglam.netlify.app/contact.html">Quản trị viên Phan Trung Lâm, @Copyright 2025</a>
 </div>
-            </div>
-        </div>
-	</body>
+<div id="separator"></div>
+<div id="footer_id">
+<div id="footer_text_id">
+<a href="https://phantrunglam.netlify.app/contact.html" target="_blank">Quản trị viên Phan Trung Lâm, @Copyright 2025</a>
+</div>
+</div>
+</div>
+
+<script>
+            function setupResponsiveMenu() {
+                const menu = document.getElementById('menu_row_id');
+                const hamburger = document.createElement('button');
+                hamburger.id = 'hamburger-btn';
+                hamburger.innerHTML = '☰ Menu';
+                
+                if (window.innerWidth <= 768) {
+                    menu.parentNode.insertBefore(hamburger, menu);
+                    menu.style.display = 'none';
+                    hamburger.addEventListener('click', () => {
+                        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+                    });
+                }
+                
+                window.addEventListener('resize', () => {
+                    clearTimeout(this.resizeTimer);
+                    this.resizeTimer = setTimeout(setupResponsiveMenu, 200);
+                });
+            }
+            document.addEventListener('DOMContentLoaded', setupResponsiveMenu);
+        </script>
+</body>
 </html>

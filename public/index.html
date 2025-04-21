@@ -1,21 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting...</title>
-    <script>
-      // Redirect to Vietnamese version immediately
-      window.location.href = "/vn/index.html";
-    </script>
-    <noscript>
-      <meta http-equiv="refresh" content="0; url=/vn/index.html" />
-    </noscript>
+    <title>Phan Ngô Gia Phả - Giới thiệu</title>
+    <link href="/assets/css/default.css" rel="stylesheet" />
+    <style>
+
+      .intro-container {
+        max-width: 900px;
+        margin: auto;
+        padding: 2rem;
+      }
+
+      .intro-title {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+
+      .intro-content p,
+      .intro-content ul {
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .intro-content ul {
+        padding-left: 1.2rem;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .btn-continue {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #3498db;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+
+      .btn-continue:hover {
+        background-color: #2980b9;
+      }
+
+      footer {
+        text-align: center;
+        color: #7f8c8d;
+        padding: 1rem 0;
+        font-size: 0.9em;
+        background: #f0f0f0;
+        margin-top: auto;
+      }
+    </style>
   </head>
   <body>
-    <p>
-      If you are not redirected automatically,
-      <a href="/vn/index.html">click here</a>.
-    </p>
+    <div id="header_id">
+      <div id="header_inner_id">
+        <div id="header_emblem_left_id">
+          <img alt="" src="../../assets/images/emblem.png" />
+        </div>
+        <div id="header_text_id">
+          <h1>PHAN NGÔ GIA PHẢ</h1>
+        </div>
+      </div>
+    </div>
+    <div class="intro-container">
+      <h2 class="intro-title">Chào mừng đến với Trang Gia phả Phan Ngô</h1>
+
+      <div class="intro-content">
+        <p>
+          Trang web này là nơi lưu trữ và hiển thị thông tin gia phả của Đại gia
+          tộc Phan Ngô dòng Tống Văn, Thái Bình.
+        </p>
+
+        <ul>
+          <li>Xem thông tin gia đình một cách trực quan và đầy đủ.</li>
+          <li>Góp ý, chia sẻ giúp hoàn thiện gia phả.</li>
+          <li>
+            Trang được phát triển bởi các thành viên tâm huyết trong dòng họ.
+          </li>
+        </ul>
+
+        <p>Tại đây, bạn có thể:</p>
+        <ul>
+          <li>Tìm kiếm thông tin các nhân vật trong dòng họ</li>
+          <li>Xem sơ đồ phả hệ gia đình</li>
+          <li>Khám phá hình ảnh, tư liệu lịch sử</li>
+          <li>Đóng góp thông tin của gia đình mình</li>
+        </ul>
+
+        <p>Nội dung tham khảo từ các tài liệu như:</p>
+        <ul>
+          <li>Ngô gia thế phả - Cụ Phan Cảnh Tung</li>
+          <li>Ngô Pha gia phả - Cụ Phan Bá Khoát</li>
+          <li>Gia phả Họ Ngô Đồng Phang và nhiều nguồn khác</li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <a href="vn/help/help.html" class="btn-continue">Xem Hướng dẫn</a>
+        <a href="vn/index.html" class="btn-continue">Vào Trang Chính</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>Liên hệ: ngophangiapha@gmail.com | ĐT: 0989428xxx</p>
+    </footer>
   </body>
 </html>

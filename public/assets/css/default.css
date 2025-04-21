@@ -11,7 +11,7 @@ body {
   padding: 0;
   color: #000000;
   background-color: #abeaf7;
-  background-image: url("/assets/images/WaterBackground.jpg");
+  background-image: url("/assets/images/PaperBackground.jpg");
   background-repeat: repeat-x;
   background-position: center top;
   background-attachment: fixed;
@@ -50,7 +50,7 @@ img {
 /* 3. LAYOUT STRUCTURE */
 /* ==================== */
 #view_id {
-  background-color: rgba(235, 250, 255, 0.85);
+  /* background-color: rgba(235, 250, 255, 0.85); */
   width: 90%;
   margin: 24px auto;
   padding: 24px;

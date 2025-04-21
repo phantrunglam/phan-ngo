@@ -1,61 +1,8 @@
 // menu.js - Tạo menu động với responsive support
+// Khởi tạo khi DOM ready
 document.addEventListener("DOMContentLoaded", function () {
-  // Tạo menu HTML (giữ nguyên)
-  const menuHTML = `
-    <ul id="menu_row_id">
-        <li class="menu_item active_menu_item" data-tooltip="Trang chủ gia phả">
-            <a href="/vn/index.html">Trang chủ</a>
-        </li>
-        <li class="menu_item search_item" >
-            <input type="text" id="search_input" placeholder="Tìm kiếm Nhân vật...">
-            <div class="search-dropdown"></div>
-        </li>
-        <li class="menu_item" data-tooltip="Danh sách thành viên họ tộc">
-            <a href="/vn/personlist.html">Họ tộc</a>
-        </li>
-        <li class="menu_item" data-tooltip="Danh sách các gia đình">
-            <a href="/vn/familylist.html">Gia đình</a>
-        </li>
-        <li class="menu_item" data-tooltip="Các phả đồ gia phả">
-            <a href="/vn/chartlist.html">Phả đồ</a>
-        </li>
-        <li class="menu_item" data-tooltip="Nguồn tài liệu tham khảo">
-            <a href="/vn/sourcelist.html">Nguồn tham chiếu</a>
-        </li>
-        <li class="menu_item" data-tooltip="Các Thống kê về thành viên gia tộc">
-            <a href="/vn/statistics.html">Thống kê</a>
-        </li>
-        <li class="menu_item has_submenu"> <a href="#">Liên hệ</a>
-    <ul class="submenu">
-        <li><a href="/vn/contact-google-form.html">Cập nhật thông tin thành viên</a></li>
-        <li><a href="/vn/feedback.html">Trao đổi góp ý</a></li>
-    </ul>
-    </li>
-        <li class="menu_item" data-tooltip="Hướng dẫn sử dụng" id="help-trigger">
-            <a href="#">Hướng dẫn</a>
-        </li>
-        <li class="menu_item" data-tooltip="Quay lại trang trước">
-            <button id="back_button" onclick="window.history.back();">⬅ Back</button>
-        </li>
-    </ul>
-    `;
-
-  // Chèn menu vào container
-  const menuContainer = document.getElementById("menu_id");
-  if (menuContainer) {
-    menuContainer.innerHTML = menuHTML;
-
-    // Khởi tạo tooltips
-    initTooltips();
-
-    // Thiết lập modal help
-    setupHelpModal();
-
-    // Thêm responsive support
-    setupResponsiveMenu();
-  }
-
-  // Khôi phục trạng thái active menu
+  setupResponsiveMenu();
+  setupHelpModal();
   highlightActiveMenu();
 });
 

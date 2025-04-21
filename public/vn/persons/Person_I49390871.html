@@ -1,218 +1,269 @@
 <!DOCTYPE html>
+
 <html>
-	<head>
-		<meta charset="UTF-8" />
-<title>Phan Ngô gia phả - 10.1 Trưởng nam Phan Trọng Trưng</title>
-<link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
-	
-                        <script src="/assets/js/menu.js"></script>
-                        <script src="/assets/js/back_button.js"></script>
-                        <script src="/assets/js/search_person.js"></script>
-                    
-</head>
-	<body class="person_page">
-        
-       	<div id="view_id">
+<head>
+<meta charset="utf-8"/>
+<title>PHAN NGÔ GIA PHẢ - 10.1 Trưởng nam Phan Trọng Trưng</title>
+<link href="/assets/css/default.css" rel="stylesheet" type="text/css"/>
+
+<script src="/assets/js/menu.js"></script>
+<script src="/assets/js/back_button.js"></script>
+<script src="/assets/js/search_person.js"></script>
+
+<style>
+            /* Tooltip styles */
+            .menu_item { position: relative; }
+            .menu_item::after {
+                content: attr(data-tooltip);
+                position: absolute;
+                bottom: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #333;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 12px;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s, visibility 0.3s;
+                z-index: 100;
+            }
+            .menu_item:hover::after { opacity: 1; visibility: visible; }
             
-            <div id="header_id">
-                <div id="header_inner_id">
-                    <div id="header_emblem_left_id">
-<img src="/media/emblem.png" alt="" />
+            /* Responsive styles */
+            @media (max-width: 768px) {
+                #menu_row_id { display: none; }
+                #hamburger-btn { display: block; }
+            }
+        </style>
+</head>
+<body class="person_page">
+<div id="view_id">
+<div id="header_id">
+<div id="header_inner_id">
+<div id="header_emblem_left_id">
+<img alt="" src="../../../assets/images/emblem.png"/>
 </div>
 <div id="header_text_id">
-	<h1>Phan Ngô gia phả</h1>
+<h1>PHAN NGÔ GIA PHẢ</h1>
 </div>
-                </div>
-            </div>
-            
-            <div id="separator"></div>
-            
-            <div id="menu_id">
-                <ul id="menu_row_id">
-	<li class="menu_item">
-		<a href="/vn/index.html">Trang chủ</a>
-	</li>
-	<li class="menu_item active_menu_item">
-		<a href="/vn/personlist.html">Họ tộc</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/familylist.html">Gia đình</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/sourcelist.html">Nguồn tham chiếu</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/chartlist.html">Phả đồ</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/statistics.html">Thống kê</a>
-	</li>
-	<li class="menu_item">
-		<a href="/vn/contact.html">Liên hệ</a>
-	</li>
+</div>
+</div>
+<div id="separator"></div>
+<div id="menu_id">
+<ul id="menu_row_id">
+<li class="menu_item active_menu_item" data-tooltip="Trang chủ gia phả">
+<a href="/vn/index.html">Trang chủ</a>
+</li>
+<li class="menu_item search_item">
+<input id="search_input" placeholder="Tìm kiếm Nhân vật..." type="text"/>
+<div class="search-dropdown"></div>
+</li>
+<li class="menu_item" data-tooltip="Danh sách thành viên họ tộc">
+<a href="/vn/personlist.html">Họ tộc</a>
+</li>
+<li class="menu_item" data-tooltip="Danh sách các gia đình">
+<a href="/vn/familylist.html">Gia đình</a>
+</li>
+<li class="menu_item" data-tooltip="Các phả đồ gia phả">
+<a href="/vn/chartlist.html">Phả đồ</a>
+</li>
+<li class="menu_item" data-tooltip="Nguồn tài liệu tham khảo">
+<a href="/vn/sourcelist.html">Nguồn tham chiếu</a>
+</li>
+<li class="menu_item" data-tooltip="Các Thống kê về thành viên gia tộc">
+<a href="/vn/statistics.html">Thống kê</a>
+</li>
+<li class="menu_item has_submenu"> <a href="#">Liên hệ</a>
+<ul class="submenu">
+<li><a href="/vn/contact-google-form.html">Cập nhật thông tin thành viên</a></li>
+<li><a href="/vn/feedback.html">Trao đổi góp ý</a></li>
 </ul>
-            </div>
-            
-            <div id="separator"></div>
-            
-            <div id="content_id">
-                <div class="main_heading">
-	<h1>10.1 Trưởng nam Phan Trọng Trưng</h1>
+</li>
+<li class="menu_item" data-tooltip="Hướng dẫn sử dụng" id="help-trigger">
+<a href="#">Hướng dẫn</a>
+</li>
+<li class="menu_item" data-tooltip="Quay lại trang trước">
+<button id="back_button" onclick="window.history.back();">⬅ Back</button>
+</li>
+</ul>
+</div>
+<div id="separator"></div>
+<div id="content_id">
+<div class="main_heading">
+<h1>10.1 Trưởng nam Phan Trọng Trưng</h1>
 <span id="person_id_id">GEDCOM ID: I49390871</span>
 </div>
 <div class="page_subsection">
 <div id="page_subsection_canvas_id">
 </div>
-	<h2>Phả đồ</h2>
-<canvas id="person_chart_canvas_id" width="742" height="442"></canvas>
+<h2>Phả đồ</h2>
+<canvas height="442" id="person_chart_canvas_id" width="742"></canvas>
 </div>
-	<script type="text/javascript">var personChartData = [{"left":210,"dateLineSpacing":12,"currentPerson":true,"ancestorBoxIndexes":[1,4],"dateTextLines":["1813-02-20"],"partnerBoxIndexes":[5],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":83,"nameTextLines":["10.1 Trưởng nam ","Phan Trọng ","Trưng"],"linkToPersonPage":"/vn/persons\/Person_I49390871.html","personExported":true,"personGender":0,"top":80.5},{"left":396,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[2,3],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":68,"nameTextLines":["9.4 Bát Phẩm ","Thư lại Phan ","Trọng Viên"],"linkToPersonPage":"/vn/persons\/Person_I54776360.html","personExported":true,"personGender":0,"top":52},{"left":582,"dateLineSpacing":12,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":["1780-08-06"],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":66,"nameTextLines":["8.1 Phan Trọng ","Xuân"],"linkToPersonPage":"/vn/persons\/Person_I46211391.html","personExported":true,"personGender":0,"top":24},{"left":582,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":34,"nameTextLines":["Phạm Thị Thao"],"linkToPersonPage":"/vn/persons\/Person_I86710928.html","personExported":true,"personGender":1,"top":114},{"left":396,"dateLineSpacing":12,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":["1790-05-05"],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":49,"nameTextLines":["Phạm Thị Bổng"],"linkToPersonPage":"/vn/persons\/Person_I23590008.html","personExported":true,"personGender":1,"top":171.5},{"left":210,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[6,7,8],"height":34,"nameTextLines":["Nguyễn Thị Ngật"],"linkToPersonPage":"/vn/persons\/Person_I62765760.html","personExported":true,"personGender":1,"top":311},{"left":24,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":34,"nameTextLines":["Phan Thị Khanh"],"linkToPersonPage":"/vn/persons\/Person_I21846352.html","personExported":true,"personGender":1,"top":236.5},{"left":24,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":34,"nameTextLines":["Phan Thị Trường"],"linkToPersonPage":"/vn/persons\/Person_81040564.html","personExported":true,"personGender":1,"top":294.5},{"left":24,"dateLineSpacing":12,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":["1834"],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":66,"nameTextLines":["11.1 Phan Linh ","Ứng"],"linkToPersonPage":"/vn/persons\/Person_I85399635.html","personExported":true,"personGender":0,"top":352.5}]</script>
-	<script type="text/javascript" src="/assets/js/personchart.js"></script>
-	<script type="text/javascript">initPersonChart()</script>
-
+<script type="text/javascript">var personChartData = [{"left":210,"dateLineSpacing":12,"currentPerson":true,"ancestorBoxIndexes":[1,4],"dateTextLines":["1813-02-20"],"partnerBoxIndexes":[5],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":83,"nameTextLines":["10.1 Trưởng nam ","Phan Trọng ","Trưng"],"linkToPersonPage":"/vn/persons\/Person_I49390871.html","personExported":true,"personGender":0,"top":80.5},{"left":396,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[2,3],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":68,"nameTextLines":["9.4 Bát Phẩm ","Thư lại Phan ","Trọng Viên"],"linkToPersonPage":"/vn/persons\/Person_I54776360.html","personExported":true,"personGender":0,"top":52},{"left":582,"dateLineSpacing":12,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":["1780-08-06"],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":66,"nameTextLines":["8.1 Phan Trọng ","Xuân"],"linkToPersonPage":"/vn/persons\/Person_I46211391.html","personExported":true,"personGender":0,"top":24},{"left":582,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":34,"nameTextLines":["Phạm Thị Thao"],"linkToPersonPage":"/vn/persons\/Person_I86710928.html","personExported":true,"personGender":1,"top":114},{"left":396,"dateLineSpacing":12,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":["1790-05-05"],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":49,"nameTextLines":["Phạm Thị Bổng"],"linkToPersonPage":"/vn/persons\/Person_I23590008.html","personExported":true,"personGender":1,"top":171.5},{"left":210,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[6,7,8],"height":34,"nameTextLines":["Nguyễn Thị Ngật"],"linkToPersonPage":"/vn/persons\/Person_I62765760.html","personExported":true,"personGender":1,"top":311},{"left":24,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":34,"nameTextLines":["Phan Thị Khanh"],"linkToPersonPage":"/vn/persons\/Person_I21846352.html","personExported":true,"personGender":1,"top":236.5},{"left":24,"dateLineSpacing":0,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":[],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":34,"nameTextLines":["Phan Thị Trường"],"linkToPersonPage":"/vn/persons\/Person_81040564.html","personExported":true,"personGender":1,"top":294.5},{"left":24,"dateLineSpacing":12,"currentPerson":false,"ancestorBoxIndexes":[],"dateTextLines":["1834"],"partnerBoxIndexes":[],"width":136,"nameLineSpacing":14,"childBoxIndexes":[],"height":66,"nameTextLines":["11.1 Phan Linh ","Ứng"],"linkToPersonPage":"/vn/persons\/Person_I85399635.html","personExported":true,"personGender":0,"top":352.5}]</script>
+<script src="/assets/js/personchart.js" type="text/javascript"></script>
+<script type="text/javascript">initPersonChart()</script>
 <div class="page_subsection">
-	<h2>Cha Mẹ</h2>
+<h2>Cha Mẹ</h2>
 <table>
-	<thead>
-		<tr>
-			<th class="table_data_left_aligned">Cha</th>
-			<th class="table_data_left_aligned">Ngày sinh</th>
-			<th class="table_data_left_aligned">Mẹ</th>
-			<th class="table_data_left_aligned">Ngày sinh</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><a href="/vn/persons/Person_I54776360.html"><img src="/media/GenderMale.png" alt="" />9.4 Bát Phẩm Thư lại Phan Trọng Viên</a></td>
-			<td></td>
-			<td><a href="/vn/persons/Person_I23590008.html"><img src="/media/GenderFemale.png" alt="" />Phạm Thị Bổng</a></td>
-			<td>1790-05-05</td>
-		</tr>
-	</tbody>
+<thead>
+<tr>
+<th class="table_data_left_aligned">Cha</th>
+<th class="table_data_left_aligned">Ngày sinh</th>
+<th class="table_data_left_aligned">Mẹ</th>
+<th class="table_data_left_aligned">Ngày sinh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/vn/persons/Person_I54776360.html"><img alt="" src="/media/GenderMale.png"/>9.4 Bát Phẩm Thư lại Phan Trọng Viên</a></td>
+<td></td>
+<td><a href="/vn/persons/Person_I23590008.html"><img alt="" src="/media/GenderFemale.png"/>Phạm Thị Bổng</a></td>
+<td>1790-05-05</td>
+</tr>
+</tbody>
 </table>
 </div>
-
 <div class="page_subsection">
-	<h2>Vợ/Chồng</h2>
+<h2>Vợ/Chồng</h2>
 <table>
-	<thead>
-		<tr>
-			<th class="table_data_left_aligned">Vợ/Chồng</th>
-			<th class="table_data_left_aligned">Ngày sinh</th>
-			<th class="table_data_left_aligned">Con cái</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><a href="/vn/persons/Person_I62765760.html"><img src="/media/GenderFemale.png" alt="" />Nguyễn Thị Ngật</a></td>
-			<td></td>
-			<td><a href="/vn/persons/Person_I21846352.html"><img src="/media/GenderFemale.png" alt="" />Phan Thị Khanh</a><br />
-<a href="/vn/persons/Person_81040564.html"><img src="/media/GenderFemale.png" alt="" />Phan Thị Trường</a><br />
-<a href="/vn/persons/Person_I85399635.html"><img src="/media/GenderMale.png" alt="" />11.1 Phan Linh Ứng</a><br />
+<thead>
+<tr>
+<th class="table_data_left_aligned">Vợ/Chồng</th>
+<th class="table_data_left_aligned">Ngày sinh</th>
+<th class="table_data_left_aligned">Con cái</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/vn/persons/Person_I62765760.html"><img alt="" src="/media/GenderFemale.png"/>Nguyễn Thị Ngật</a></td>
+<td></td>
+<td><a href="/vn/persons/Person_I21846352.html"><img alt="" src="/media/GenderFemale.png"/>Phan Thị Khanh</a><br/>
+<a href="/vn/persons/Person_81040564.html"><img alt="" src="/media/GenderFemale.png"/>Phan Thị Trường</a><br/>
+<a href="/vn/persons/Person_I85399635.html"><img alt="" src="/media/GenderMale.png"/>11.1 Phan Linh Ứng</a><br/>
 </td>
-		</tr>
-	</tbody>
+</tr>
+</tbody>
 </table>
 </div>
-
 <div class="page_subsection">
-	<h2>Sự kiện cá nhân</h2>
+<h2>Sự kiện cá nhân</h2>
 <table>
-	<thead>
-		<tr>
-			<th class="table_data_left_aligned">Loại Sự kiện</th>
-			<th class="table_data_left_aligned">Ngày</th>
-			<th class="table_data_left_aligned">Địa điểm</th>
-			<th class="table_data_left_aligned">Mô tả</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><a href="/vn/events/Event_25696970.html"><img src="/media/Bullet.png" alt="" />Sinh</a></td>
-			<td>1813-02-20</td>
-			<td></td>
-			<td>AL</td>
-		</tr>
-		<tr>
-			<td><a href="/vn/events/Event_61260209.html"><img src="/media/Bullet.png" alt="" />Ngày mất (AL)</a></td>
-			<td>1843-08-15</td>
-			<td></td>
-			<td>thọ 31 tuổi</td>
-		</tr>
-		<tr>
-			<td><a href="/vn/events/Event_69780864.html"><img src="/media/Bullet.png" alt="" />Kết hôn</a></td>
-			<td></td>
-			<td></td>
-			<td>5930,-1020</td>
-		</tr>
-		<tr>
-			<td><a href="/vn/events/Event_20589909.html"><img src="/media/Bullet.png" alt="" />Mất</a></td>
-			<td></td>
-			<td></td>
-			<td>Kỵ 19 tháng 8, thọ 31 tuổi</td>
-		</tr>
-		<tr>
-			<td><a href="/vn/events/Event_12478344.html"><img src="/media/Bullet.png" alt="" />Burial</a></td>
-			<td></td>
-			<td></td>
-			<td>Mộ táng ở gò trên đường do em ruột Phan Thi chọn đất</td>
-		</tr>
-	</tbody>
+<thead>
+<tr>
+<th class="table_data_left_aligned">Loại Sự kiện</th>
+<th class="table_data_left_aligned">Ngày</th>
+<th class="table_data_left_aligned">Địa điểm</th>
+<th class="table_data_left_aligned">Mô tả</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/vn/events/Event_25696970.html"><img alt="" src="/media/Bullet.png"/>Sinh</a></td>
+<td>1813-02-20</td>
+<td></td>
+<td>AL</td>
+</tr>
+<tr>
+<td><a href="/vn/events/Event_61260209.html"><img alt="" src="/media/Bullet.png"/>Ngày mất (AL)</a></td>
+<td>1843-08-15</td>
+<td></td>
+<td>thọ 31 tuổi</td>
+</tr>
+<tr>
+<td><a href="/vn/events/Event_69780864.html"><img alt="" src="/media/Bullet.png"/>Kết hôn</a></td>
+<td></td>
+<td></td>
+<td>5930,-1020</td>
+</tr>
+<tr>
+<td><a href="/vn/events/Event_20589909.html"><img alt="" src="/media/Bullet.png"/>Mất</a></td>
+<td></td>
+<td></td>
+<td>Kỵ 19 tháng 8, thọ 31 tuổi</td>
+</tr>
+<tr>
+<td><a href="/vn/events/Event_12478344.html"><img alt="" src="/media/Bullet.png"/>Burial</a></td>
+<td></td>
+<td></td>
+<td>Mộ táng ở gò trên đường do em ruột Phan Thi chọn đất</td>
+</tr>
+</tbody>
 </table>
 </div>
-
 <div class="page_subsection" id="notes_subsection_id">
-	<h2>Ghi chú</h2>
+<h2>Ghi chú</h2>
 <table>
-	<thead>
-		<tr>
-			<th class="table_data_left_aligned"> </th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td colspan="1" class="table_data_left_aligned">Cụ là con trưởng cụ Trọng Viên, thọ 31 tuổi, kỵ 19-8, mộ ở trên đường.<br><br><<PKT: đổi lại tên từ Trưng sang Chưng>></td>
-		</tr>
-		<tr>
-			<td colspan="1" class="table_data_left_aligned">Khóa sinh kiêm xã trưởng Phan quý công húy Trọng Trưng thụy Chính Hòa hậu phủ quân.  Ông là con trưởng cụ Phan Trọng Viên sinh giờ Mão ngày 20 tháng 02 năm Qúy Dậu triều vua Gia Long (1813) mất ngày rằm (15) tháng 8 năm Qúy Mão triều vua Thiệu Trị (1843) hưởng thọ 31 tuổi.  Mọ táng ở gò trên đường do em ruột Phan Thi chọn đất, sinh con trai Phan Văn Ưng (Linh Ứng), con gái Phan Thị Khanh, Thị Trường.  Thị Khanh lấy xã trưởng Vũ Thống sinh ra Vũ Đức Dung,  gái một người lấy Phạm Bách.  Thị Trường mất sớm *Ông mất sớm, vợ ông người họ Nguyễn tái giá lấy cựu lý trưởng Lại Đức Trịnh khuân tài sản của gia đình mang hết về nhà Trịnh.  <br>[Ngô Phan Thế phả tục biên - Phan Ngô Cảnh Tung]</td>
-		</tr>
-	</tbody>
+<thead>
+<tr>
+<th class="table_data_left_aligned"> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="table_data_left_aligned" colspan="1">Cụ là con trưởng cụ Trọng Viên, thọ 31 tuổi, kỵ 19-8, mộ ở trên đường.<br/><br/>&lt;<pkt: chưng="" lại="" sang="" trưng="" tên="" từ="" đổi="">&gt;</pkt:></td>
+</tr>
+<tr>
+<td class="table_data_left_aligned" colspan="1">Khóa sinh kiêm xã trưởng Phan quý công húy Trọng Trưng thụy Chính Hòa hậu phủ quân.  Ông là con trưởng cụ Phan Trọng Viên sinh giờ Mão ngày 20 tháng 02 năm Qúy Dậu triều vua Gia Long (1813) mất ngày rằm (15) tháng 8 năm Qúy Mão triều vua Thiệu Trị (1843) hưởng thọ 31 tuổi.  Mọ táng ở gò trên đường do em ruột Phan Thi chọn đất, sinh con trai Phan Văn Ưng (Linh Ứng), con gái Phan Thị Khanh, Thị Trường.  Thị Khanh lấy xã trưởng Vũ Thống sinh ra Vũ Đức Dung,  gái một người lấy Phạm Bách.  Thị Trường mất sớm *Ông mất sớm, vợ ông người họ Nguyễn tái giá lấy cựu lý trưởng Lại Đức Trịnh khuân tài sản của gia đình mang hết về nhà Trịnh.  <br/>[Ngô Phan Thế phả tục biên - Phan Ngô Cảnh Tung]</td>
+</tr>
+</tbody>
 </table>
 </div>
-
 <div class="page_subsection">
-	<h2>Nguồn tham chiếu</h2>
+<h2>Nguồn tham chiếu</h2>
 <table>
-	<thead>
-		<tr>
-			<th class="table_data_left_aligned">Mô tả</th>
-			<th class="table_data_left_aligned">Trang</th>
-			<th class="table_data_left_aligned">Chất lượng</th>
-			<th class="table_data_left_aligned"> Thông tin</th>
-			<th class="table_data_left_aligned">Bằng chứng</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><a href="/vn/sources/Source_S12346790.html"><img src="/media/Bullet.png" alt="" />NGÔ GIA PHỔ HỆ - Phan Đức Mậu</a></td>
-			<td>23</td>
-			<td>Chưa rõ</td>
-			<td>Chưa rõ</td>
-			<td>Chưa rõ</td>
-		</tr>
-	</tbody>
+<thead>
+<tr>
+<th class="table_data_left_aligned">Mô tả</th>
+<th class="table_data_left_aligned">Trang</th>
+<th class="table_data_left_aligned">Chất lượng</th>
+<th class="table_data_left_aligned"> Thông tin</th>
+<th class="table_data_left_aligned">Bằng chứng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/vn/sources/Source_S12346790.html"><img alt="" src="/media/Bullet.png"/>NGÔ GIA PHỔ HỆ - Phan Đức Mậu</a></td>
+<td>23</td>
+<td>Chưa rõ</td>
+<td>Chưa rõ</td>
+<td>Chưa rõ</td>
+</tr>
+</tbody>
 </table>
 </div>
-
-            </div>
-            
-            <div id="separator"></div>
-            
-            <div id="footer_id">
-                <div id="footer_text_id">
-<a target="_blank" href="https://phantrunglam.netlify.app/contact.html">Quản trị viên Phan Trung Lâm, @Copyright 2025</a>
 </div>
-            </div>
-        </div>
-	</body>
+<div id="separator"></div>
+<div id="footer_id">
+<div id="footer_text_id">
+<a href="https://phantrunglam.netlify.app/contact.html" target="_blank">Quản trị viên Phan Trung Lâm, @Copyright 2025</a>
+</div>
+</div>
+</div>
+
+<script>
+            function setupResponsiveMenu() {
+                const menu = document.getElementById('menu_row_id');
+                const hamburger = document.createElement('button');
+                hamburger.id = 'hamburger-btn';
+                hamburger.innerHTML = '☰ Menu';
+                
+                if (window.innerWidth <= 768) {
+                    menu.parentNode.insertBefore(hamburger, menu);
+                    menu.style.display = 'none';
+                    hamburger.addEventListener('click', () => {
+                        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+                    });
+                }
+                
+                window.addEventListener('resize', () => {
+                    clearTimeout(this.resizeTimer);
+                    this.resizeTimer = setTimeout(setupResponsiveMenu, 200);
+                });
+            }
+            document.addEventListener('DOMContentLoaded', setupResponsiveMenu);
+        </script>
+</body>
 </html>

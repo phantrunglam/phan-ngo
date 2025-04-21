@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Load dữ liệu
-  fetch("/data/person_list.json")
+  fetch("/data/person-list.json")
     .then((response) => response.json())
     .then((data) => {
       window.personSearchAPI.personList = data;
